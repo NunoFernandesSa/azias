@@ -50,12 +50,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-8 animate-bounce">
-          <Link href="#next-match">
-            <MdKeyboardDoubleArrowDown
-              size={40}
-              className="text-secondary/50"
-            />
-          </Link>
+          <MdKeyboardDoubleArrowDown size={40} className="text-secondary/50" />
         </div>
       </div>
     </div>

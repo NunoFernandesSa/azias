@@ -1,5 +1,6 @@
 // ---------- React/Next ----------
 import Link from "next/link";
+import Image from "next/image";
 
 // ---------- components ----------
 import { TeamLogoAndName } from "./TeamLogoAndName";
@@ -14,11 +15,10 @@ import {
 
 // ---------- icons ----------
 import { BiMapPin, BiTimer } from "react-icons/bi";
-import { FaCalendarDays } from "react-icons/fa6";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 // ---------- constants ----------
 import { calendar } from "@/src/constants/constants";
-import Image from "next/image";
 
 export default function NextMatchCard() {
   const { match, team } = calendar[0];
@@ -58,7 +58,7 @@ export default function NextMatchCard() {
 
         <div className="flex flex-col mt-12 gap-3">
           <p className="flex items-center">
-            <FaCalendarDays className="mr-2" /> {match.date}
+            <FaRegCalendarAlt className="mr-2" /> {match.date}
           </p>
           <p className="flex items-center">
             <BiTimer className="mr-2" /> {match.hour}H

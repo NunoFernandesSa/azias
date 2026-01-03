@@ -8,7 +8,7 @@ export default function HomePage() {
       <Hero />
 
       {/* Autres sections de la page d'accueil */}
-      <Container className="py-8 px-1 lg:px-16" id="next-match">
+      <Container className="py-8 px-1 lg:px-16">
         <section
           className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-12"
           id="next-match"
