@@ -49,7 +49,7 @@ export default function TeamCard() {
         </div>
 
         <Button asChild variant={"secondary"} className="w-full md:w-1/2">
-          <Link href="/calendario">Consultar calendário</Link>
+          <Link href="/equipa">Ver plantel</Link>
         </Button>
       </CardFooter>
     </Card>
