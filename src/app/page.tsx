@@ -1,6 +1,7 @@
 import Container from "../components/common/Container";
 import Hero from "../components/features/hero/Hero";
 import NextMatchCard from "../components/features/matches/NextMatchCard";
+import SponsorsComponent from "../components/features/sponsors/SponsorsComponent";
 import TeamCard from "../components/features/team/TeamCard";
 import TeamHistoryCard from "../components/features/team/TeamHistoryCard";
 
@@ -15,8 +16,12 @@ export default function HomePage() {
         <TeamCard />
       </Container>
 
-      <Container className="w-full lg:w-1/2 mx-auto px-2 mb-60">
+      <Container className="w-full lg:w-1/2 mx-auto px-2">
         <TeamHistoryCard />
+      </Container>
+
+      <Container className="px-1 py-16 lg:px-16">
+        <SponsorsComponent />
       </Container>
     </>
   );
