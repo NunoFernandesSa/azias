@@ -1,5 +1,5 @@
 import { MobileLayout } from "./MobileLayout";
-import { Navbar } from "./Navbar";
+import { Navbar } from "../common/Navbar";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   return (

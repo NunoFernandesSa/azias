@@ -5,5 +5,5 @@ export default function Container({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={`py-30 lg:py-16 ${className}`}>{children}</div>;
+  return <div className={`${className}`}>{children}</div>;
 }

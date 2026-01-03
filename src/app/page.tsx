@@ -1,5 +1,5 @@
 import Container from "../components/common/Container";
-import Hero from "../components/layout/Hero";
+import Hero from "../components/features/hero/Hero";
 
 export default function HomePage() {
   return (
