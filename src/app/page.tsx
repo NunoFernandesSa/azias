@@ -1,23 +1,28 @@
-"use client";
+import Container from "../components/common/Container";
+import Hero from "../components/layout/Hero";
 
-import { Navbar } from "@components/layout/Navbar";
-import { useIsMobile } from "../hooks/useIsMobile";
-
-export default function Home({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const isMobile = useIsMobile();
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex flex-1">
-        <Navbar />
+    <>
+      <Hero />
 
-        <main className={isMobile ? "flex-1" : "lg:ml-48 flex-1"}>
-          {children}
-        </main>
-      </div>
-    </div>
+      {/* Autres sections de la page d'accueil */}
+      <Container className="py-8">
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-6">Próximo Jogo</h2>
+          {/* Contenu du prochain match */}
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-6">Nossa Equipa</h2>
+          {/* Contenu de l'équipe */}
+        </section>
+
+        <section>
+          <h2 className="text-3xl font-bold mb-6">Últimas Notícias</h2>
+          {/* Dernières actualités */}
+        </section>
+      </Container>
+    </>
   );
 }
