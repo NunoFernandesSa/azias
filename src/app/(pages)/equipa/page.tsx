@@ -1,5 +1,6 @@
 import Container from "@/src/components/common/Container";
 import Title from "@/src/components/common/Title";
+import CoachCard from "@/src/components/features/team/CoachCard";
 import PlayerCard from "@/src/components/features/team/PlayerCard";
 import { PlayersSection } from "@/src/components/features/team/PlayerSection";
 import {
@@ -43,7 +44,7 @@ export default function TeamPage() {
 
       <PlayersSection sectionName="Treinadores">
         {Coaches.map((player) => (
-          <PlayerCard key={player.id} {...player} />
+          <CoachCard key={player.id} {...player} />
         ))}
       </PlayersSection>
     </Container>

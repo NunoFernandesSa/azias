@@ -17,6 +17,13 @@ export type PlayerCardProps = {
   className?: string;
 };
 
+export type CoachCardProps = {
+  imageUrl: string;
+  name: string;
+  age?: number | null;
+  className?: string;
+};
+
 export type PlayerSectionProps = {
   sectionName: string;
   children: React.ReactNode;
