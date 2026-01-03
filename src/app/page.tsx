@@ -1,6 +1,7 @@
 import Container from "../components/common/Container";
 import Hero from "../components/features/hero/Hero";
 import NextMatchCard from "../components/features/matches/NextMatchCard";
+import TeamCard from "../components/features/team/TeamCard";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
           id="next-match"
         >
           <NextMatchCard />
+          <TeamCard />
         </section>
       </Container>
     </>

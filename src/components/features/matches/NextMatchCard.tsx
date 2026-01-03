@@ -32,7 +32,7 @@ export default function NextMatchCard() {
       <Image
         src="/images/background/bg-match-card.jpg"
         alt="Imagem de fundo"
-        className="absolute w-full h-full object-cover -z-10"
+        className="absolute w-full h-full object-cover -z-10 rounded-lg"
         fill
         priority
       />
