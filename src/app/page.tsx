@@ -1,9 +1,12 @@
+import { Contact } from "lucide-react";
 import Container from "../components/common/Container";
 import Hero from "../components/features/hero/Hero";
 import NextMatchCard from "../components/features/matches/NextMatchCard";
 import SponsorsComponent from "../components/features/sponsors/SponsorsComponent";
 import TeamCard from "../components/features/team/TeamCard";
 import TeamHistoryCard from "../components/features/team/TeamHistoryCard";
+import ContactCard from "../components/features/contact/ContactCard";
+import MapsCard from "../components/features/contact/MapsCard";
 
 export default function HomePage() {
   return (
@@ -22,6 +25,11 @@ export default function HomePage() {
 
       <Container className="px-1 py-16 lg:px-16">
         <SponsorsComponent />
+      </Container>
+
+      <Container className="px-1 lg:mx-16 my-16 grid grid-cols-1 xl:grid-cols-[3fr_7fr] gap-6">
+        <ContactCard />
+        <MapsCard />
       </Container>
     </>
   );
