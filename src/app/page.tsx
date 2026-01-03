@@ -1,5 +1,6 @@
 import Container from "../components/common/Container";
 import Hero from "../components/features/hero/Hero";
+import NextMatchCard from "../components/features/matches/NextMatchCard";
 
 export default function HomePage() {
   return (
@@ -7,20 +8,12 @@ export default function HomePage() {
       <Hero />
 
       {/* Autres sections de la page d'accueil */}
-      <Container className="py-8">
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Próximo Jogo</h2>
-          {/* Contenu du prochain match */}
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Nossa Equipa</h2>
-          {/* Contenu de l'équipe */}
-        </section>
-
-        <section>
-          <h2 className="text-3xl font-bold mb-6">Últimas Notícias</h2>
-          {/* Dernières actualités */}
+      <Container className="py-8 px-1 lg:px-16" id="next-match">
+        <section
+          className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-12"
+          id="next-match"
+        >
+          <NextMatchCard />
         </section>
       </Container>
     </>
