@@ -5,6 +5,7 @@ import { Navbar } from "../components/common/Navbar";
 import Container from "../components/common/Container";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { ClientLayout } from "../components/layout/ClientLayout";
+import Footer from "../components/common/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClientLayout>{children}</ClientLayout>
+        <Footer />
       </body>
     </html>
   );
