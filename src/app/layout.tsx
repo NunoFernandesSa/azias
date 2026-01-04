@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description:
     "O Azias FC é uma equipa de futebol amador de Ponte da Barca que participa na Liga Inatel em Portugal. Combinando competição e um ambiente amigável. Futebol de competição com espírito desportivo e convívio. Junte-se à nossa equipa!",
   keywords: [
+    "Site oficial",
     "Azias FC",
     "Futebol amador em Portugal",
     "Ligua Inatel",
