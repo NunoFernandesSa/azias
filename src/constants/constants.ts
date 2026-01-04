@@ -26,26 +26,26 @@ export const navLinks = [
   },
 ];
 
+export const aziasFC = {
+  id: 1,
+  name: "Azias FC",
+  logo: "/images/azias-fc-logo.webp",
+};
+
 export const calendar = [
   {
     id: 1,
-    match: {
-      championship: "Liga INATEL",
-      jornada: 1,
-      date: "25/10/2025",
-      hour: "19:00",
-      address: "Campo da Manguela, AZIAS Ponte da Barca",
-      playAtHome: false,
-    },
-    team: {
-      teamPlayingAtHome: "A.C.R.D Vilarinho",
-      teamPlayingAtHomeLogo: "/images/azias-fc-logo.webp",
-      teamPlayingAway: "Azias FC",
-      teamPlayingAwayLogo: "/images/azias-fc-logo.webp",
-    },
-    results: {
-      teamPlayingAtHomeScore: 1,
-      teamPlayingAwayScore: 1,
+    championship: "Liga INATEL",
+    jornada: 1,
+    date: "25/10/2025",
+    hour: "19:00",
+    address: "Campo da Manguela, AZIAS Ponte da Barca",
+    opposingTeam: "Opposing Team FC",
+    opposingTeamLogo: "/images/azias-fc-logo.webp",
+    playAtHome: true,
+    scores: {
+      aziasFCScore: 1,
+      opposingTeamScore: 1,
     },
   },
   {

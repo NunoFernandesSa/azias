@@ -19,9 +19,10 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 
 // ---------- constants ----------
 import { calendar } from "@/src/constants/constants";
+import { aziasFC } from "@/src/constants/constants";
 
 export default function NextMatchCard() {
-  const { match, team } = calendar[0];
+  const index = 0;
 
   return (
     <Card
@@ -44,28 +45,36 @@ export default function NextMatchCard() {
         </CardTitle>
       </CardHeader>
       <CardContent className="">
-        <div className="flex items-center justify-center gap-3 lg:gap-6">
-          <TeamLogoAndName
-            teamLogo={team?.teamPlayingAtHomeLogo}
-            teamName={team?.teamPlayingAtHome}
-          />
-          <p className="text-xl lg:text-4xl font-bold text-secondary">X</p>
-          <TeamLogoAndName
-            teamLogo={team?.teamPlayingAwayLogo}
-            teamName={team?.teamPlayingAway}
-          />
-        </div>
+        {calendar[0].playAtHome ? (
+          <div className="flex items-center justify-center gap-3 lg:gap-6">
+            <TeamLogoAndName teamLogo={aziasFC.logo} teamName={aziasFC.name} />
+            <p className="text-xl lg:text-4xl font-bold text-secondary">X</p>
+            <TeamLogoAndName
+              teamLogo={calendar[index].opposingTeamLogo}
+              teamName={calendar[index].opposingTeam}
+            />
+          </div>
+        ) : (
+          <div className="flex items-center justify-center gap-3 lg:gap-6">
+            <TeamLogoAndName
+              teamLogo={calendar[index].opposingTeamLogo}
+              teamName={calendar[index].opposingTeam}
+            />
+            <p className="text-xl lg:text-4xl font-bold text-secondary">X</p>
+            <TeamLogoAndName teamLogo={aziasFC.logo} teamName={aziasFC.name} />
+          </div>
+        )}
 
         <div className="flex flex-col mt-12 gap-3">
           <p className="flex items-center">
-            <FaRegCalendarAlt className="mr-2" /> {match.date}
+            <FaRegCalendarAlt className="mr-2" /> {calendar[index].date}
           </p>
           <p className="flex items-center">
-            <BiTimer className="mr-2" /> {match.hour}H
+            <BiTimer className="mr-2" /> {calendar[index].hour}H
           </p>
 
           <p className="flex items-center">
-            <BiMapPin className="mr-2" /> {match.address}
+            <BiMapPin className="mr-2" /> {calendar[index].address}
           </p>
         </div>
       </CardContent>

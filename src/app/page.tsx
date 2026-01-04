@@ -1,4 +1,3 @@
-import { Contact } from "lucide-react";
 import Container from "../components/common/Container";
 import Hero from "../components/features/hero/Hero";
 import NextMatchCard from "../components/features/matches/NextMatchCard";
