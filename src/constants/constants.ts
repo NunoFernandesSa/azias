@@ -39,9 +39,9 @@ export const calendar = [
     },
     team: {
       teamPlayingAtHome: "A.C.R.D Vilarinho",
-      teamPlayingAtHomeLogo: "/azias-fc-logo.png",
+      teamPlayingAtHomeLogo: "/images/azias-fc-logo.webp",
       teamPlayingAway: "Azias FC",
-      teamPlayingAwayLogo: "/azias-fc-logo.png",
+      teamPlayingAwayLogo: "/images/azias-fc-logo.webp",
     },
     results: {
       teamPlayingAtHomeScore: 1,
