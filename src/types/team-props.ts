@@ -20,7 +20,7 @@ export type PlayerCardProps = {
 export type CoachCardProps = {
   imageUrl: string;
   name: string;
-  age?: number | null;
+  age?: number | string | null;
   className?: string;
 };
 

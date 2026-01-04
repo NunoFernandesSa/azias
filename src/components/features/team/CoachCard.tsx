@@ -38,7 +38,9 @@ export default function CoachCard({
             {name}
             {age ? (
               <span className="text-base font-normal"> {age} anos</span>
-            ) : null}
+            ) : (
+              ""
+            )}
           </h3>
         </div>
       </CardContent>

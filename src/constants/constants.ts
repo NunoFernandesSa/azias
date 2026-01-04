@@ -621,13 +621,56 @@ export const Coaches = [
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Agostinho Costa",
     age: "",
-    stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Alexandre Neiva",
     age: "",
-    stats: { matches: 0, goals: 0, assists: 0 },
+  },
+];
+
+export const products = [
+  {
+    id: 1,
+    name: "Cachecol oficial de 2025/2026",
+    price: 29.99,
+    originalPrice: 34.99,
+    discount: 15,
+    image:
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
+    rating: 4.5,
+    reviews: 124,
+    shippingPrice: 0,
+    tags: ["Officiel", "Nouveauté", "Édition limitée"],
+    stock: 3,
+  },
+  {
+    id: 2,
+    name: "Cachecol oficial de 2025/2026",
+    price: 29.99,
+    originalPrice: 34.99,
+    discount: 15,
+    image:
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
+    rating: 4.5,
+    reviews: 124,
+    shippingPrice: 0,
+    tags: ["Officiel", "Nouveauté", "Édition limitée"],
+    stock: 3,
+  },
+  {
+    id: 3,
+    name: "Cachecol oficial de 2025/2026",
+    price: 29.99,
+    originalPrice: 34.99,
+    discount: 15,
+    image:
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
+    rating: 4.5,
+    reviews: 124,
+    shippingPrice: 0,
+    tags: ["Officiel", "Nouveauté", "Édition limitée"],
+    stock: 3,
   },
 ];

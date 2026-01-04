@@ -43,8 +43,8 @@ export default function TeamPage() {
       </PlayersSection>
 
       <PlayersSection sectionName="Treinadores">
-        {Coaches.map((player) => (
-          <CoachCard key={player.id} {...player} />
+        {Coaches.map((coach) => (
+          <CoachCard key={coach.id} {...coach} />
         ))}
       </PlayersSection>
     </Container>
