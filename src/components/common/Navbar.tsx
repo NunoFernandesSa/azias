@@ -86,7 +86,7 @@ export function Navbar() {
           </Link>
 
           {/* ---------- Navigation Desktop ---------- */}
-          <div className="w-full flex flex-col items-center justify-center gap-3">
+          <div className="w-full flex flex-col items-center justify-center gap-2">
             {navLinks.map(({ href, label, id }) => {
               const isActive = pathname === href;
 
@@ -96,8 +96,8 @@ export function Navbar() {
                   href={href}
                   className={`
                     relative overflow-hidden
-                    font-bold text-sm lg:text-base
-                    px-6 py-4 w-full max-w-xs
+                    font-semibold text-sm lg:text-base
+                    px-6 py-3 w-full max-w-xs
                     transition-all duration-300 ease-out
                     
                     ${
