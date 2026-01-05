@@ -71,7 +71,7 @@ export function Navbar() {
         </div>
       ) : (
         // ---------- Desktop Nav ----------
-        <nav className="h-full w-full flex flex-col items-center py-8">
+        <nav className="h-full w-full flex flex-col items-center pb-8">
           <Link href="/" className="mb-3">
             <div className="relative w-32 h-32 md:w-40 md:h-40">
               <Image
