@@ -1,6 +1,6 @@
 export type TeamLogoAndNameProps = {
-  teamLogo: string | null | undefined;
-  teamName: string | null | undefined;
+  teamLogo: string | undefined;
+  teamName: string | undefined;
 };
 
 export type PlayerCardProps = {
