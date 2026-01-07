@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Spinner } from "./Spinner";
+import { Spinner } from "@components/common/Spinner";
 import { useEffect, useState } from "react";
 
 export default function SplashProvider({
