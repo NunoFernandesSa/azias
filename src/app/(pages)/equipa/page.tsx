@@ -1,8 +1,14 @@
+// ---------- React/Next ----------
+import { JSX } from "react";
+
+// ---------- Components ----------
 import Container from "@/src/components/common/Container";
 import Title from "@/src/components/common/Title";
 import CoachCard from "@/src/components/features/team/CoachCard";
 import PlayerCard from "@/src/components/features/team/PlayerCard";
 import { PlayersSection } from "@/src/components/features/team/PlayerSection";
+
+// ---------- Constants ----------
 import {
   Coachs,
   Defenders,
@@ -11,9 +17,13 @@ import {
   Midfielders,
 } from "@/src/constants/constants";
 
-export default function TeamPage() {
+/**
+ * A page that displays the team's players, coaches and other staff for the 2025/2026 season.
+ * @returns {JSX.Element} - the team page component
+ */
+export default function TeamPage(): JSX.Element {
   return (
-    <Container className="mx-3 lg:mx-16 my-30 lg:my-16 pt-6 lg:pt-0">
+    <Container className="px-1 lg:mx-16 my-30 lg:my-16 pt-6 lg:pt-0">
       <Title className="text-primary text-center mb-12">
         A Nossa Equipa 2025/2026
       </Title>

@@ -1,4 +1,9 @@
+// ---------- React/Next ----------
 import Link from "next/link";
+import Image from "next/image";
+import { JSX } from "react";
+
+// ---------- Components ----------
 import { Button } from "../../ui/button";
 import {
   Card,
@@ -7,11 +12,23 @@ import {
   CardHeader,
   CardTitle,
 } from "../../ui/card";
-import { sponsors } from "@/src/constants/constants";
 import SponsorLogoCard from "./SponsorLogoCard";
-import Image from "next/image";
 
-export default function SponsorsComponent() {
+// ---------- constants ----------
+import { sponsors } from "@/src/constants/constants";
+
+/**
+ * Displays a responsive card with a gradient background color, a title, a content section
+ * with a description and a call to action, and a footer section with sponsor logos.
+ *
+ * The component is responsive and has a rounded corners.
+ * The content section has a title, a description and a call to action
+ * with a button to become a sponsor.
+ * The footer section displays sponsor logos in a responsive grid.
+ *
+ * @returns {JSX.Element} A JSX element representing the SponsorsComponent.
+ */
+export default function SponsorsComponent(): JSX.Element {
   return (
     <Card className="relative bg-gradient-to-r from-primary to-primary/40 rounded-lg overflow-hidden text-primary-foreground">
       {/* background image */}

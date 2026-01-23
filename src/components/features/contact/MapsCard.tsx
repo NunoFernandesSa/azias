@@ -1,6 +1,14 @@
+// ---------- components ----------
+import { JSX } from "react";
 import { Card } from "../../ui/card";
 
-export default function MapsCard() {
+/**
+ * A card component that displays a Google Maps iframe with the
+ * location of Campo de Futebol da Manguela.
+ *
+ * @returns {JSX.Element} - the MapsCard component
+ */
+export default function MapsCard(): JSX.Element {
   return (
     <Card className="p-0 m-0">
       <iframe
@@ -9,7 +17,7 @@ export default function MapsCard() {
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        className="w-full h-[350px] rounded-lg"
+        className="w-full min-h-80 h-full rounded-lg"
       ></iframe>
     </Card>
   );

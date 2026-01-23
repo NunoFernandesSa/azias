@@ -2,8 +2,16 @@ import { Card, CardFooter, CardHeader, CardTitle } from "../../ui/card";
 import Image from "next/image";
 import { Button } from "../../ui/button";
 import Link from "next/link";
+import { JSX } from "react";
 
-export default function TeamCard() {
+/**
+ * A card component for the team.
+ *
+ * @returns {JSX.Element} - the team card component
+ */
+export default function TeamCard(): JSX.Element {
+  const bgImage = "/images/bg-hero/hero-img.jpg";
+
   return (
     <Card
       className={
@@ -11,7 +19,7 @@ export default function TeamCard() {
       }
     >
       <Image
-        src="/images/background/bg-match-card.jpg"
+        src={bgImage}
         alt="Imagem de fundo"
         className="absolute w-full h-full object-cover rounded-lg -z-10"
         fill

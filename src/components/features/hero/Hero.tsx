@@ -3,13 +3,25 @@ import Link from "next/link";
 import { BiCalendar, BiPhone } from "react-icons/bi";
 import { Button } from "../../ui/button";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { JSX } from "react";
 
-export default function Hero() {
+/**
+ * A hero component for the main page.
+ *
+ * Displays a background image and a content
+ * section with a title, a subtitle and two buttons.
+ *
+ * @returns {JSX.Element} - the hero component
+ */
+export default function Hero(): JSX.Element {
   const heroBg = "/images/bg-hero/hero-img.jpg";
+
+  const title = "AZIAS FC";
+  const subtitle = "Um clube. Uma família. Uma paixão.";
 
   return (
     <div className="relative flex items-end overflow-hidden min-h-screen">
-      {/* background image */}
+      {/* ----- background image ----- */}
       <Image
         src={heroBg}
         alt="Imagem de fundo"
@@ -18,15 +30,16 @@ export default function Hero() {
         priority
       />
 
-      {/* Content */}
+      {/* ----- Content ----- */}
       <div className="w-full h-screen flex flex-col justify-end items-center bg-linear-to-t from-primary via-primary/70 to-background/20 gap-6 pb-10">
         <h2 className="text-6xl md:text-8xl lg:text-10xl xl:text-[12rem] font-bold text-primary-foreground/70">
-          AZIAS FC
+          {title}
         </h2>
         <p className="lg:text-2xl text-xl text-primary-foreground/80 mt-6 italic">
-          Um clube. Uma família. Uma paixão.
+          {subtitle}
         </p>
 
+        {/* ----- CTA Buttons ----- */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full px-6">
           <Button
             asChild
@@ -51,6 +64,7 @@ export default function Hero() {
           </Button>
         </div>
 
+        {/* ----- Scroll Down Indicator ----- */}
         <div className="mt-8 animate-bounce">
           <MdKeyboardDoubleArrowDown size={40} className="text-secondary/50" />
         </div>

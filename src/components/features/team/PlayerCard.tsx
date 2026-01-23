@@ -1,9 +1,27 @@
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "../../ui/card";
-import { PlayerProps } from "@/src/types/team-props";
-import CaptainBadge from "./CaptainBadge";
+// ---------- React/Next ----------
 import Image from "next/image";
+import { JSX } from "react";
 
+// ---------- Components ----------
+import { Card, CardContent } from "../../ui/card";
+import CaptainBadge from "./CaptainBadge";
+
+// ---------- Types ----------
+import { PlayerProps } from "@/src/types/team-props";
+
+// ---------- Utils ----------
+import { cn } from "@/lib/utils";
+
+/**
+ * A card component for a player.
+ * @param {string} imageUrl - image URL of the player
+ * @param {string} props.name - name of the player
+ * @param {number} props.age - age of the player
+ * @param {boolean} props.isCaptain - whether the player is the captain or not
+ * @param {object} props.stats - additional stats of the player
+ * @param {string} props.className - additional CSS classes for the component
+ * @returns {JSX.Element} - the player card component
+ */
 export default function PlayerCard({
   imageUrl,
   name,
@@ -11,7 +29,7 @@ export default function PlayerCard({
   isCaptain,
   stats,
   className,
-}: PlayerProps) {
+}: PlayerProps): JSX.Element {
   return (
     <Card
       className={cn(
@@ -21,21 +39,21 @@ export default function PlayerCard({
         className,
       )}
     >
-      {/* captain badge */}
+      {/* ----- Captain badge ----- */}
       {isCaptain && <CaptainBadge />}
 
-      {/* play number */}
+      {/* TODO: implement player number badge in the future */}
       {/* <div className="absolute top-3 left-3 z-20">
         <div className="bg-primary text-primary-foreground text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
           {number}
         </div>
       </div> */}
 
-      {/* Container image */}
+      {/* ----- Container image ----- */}
       <div className="relative overflow-hidden min-h-64 w-full">
-        {/* Gradient overlay */}
+        {/* ----- Gradient overlay ----- */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-        {/* Player image */}
+        {/* ----- Player image ----- */}
         <Image
           src={imageUrl}
           alt={`${name}`}
@@ -46,24 +64,24 @@ export default function PlayerCard({
         />
       </div>
 
-      {/* Content */}
+      {/* ----- Content ----- */}
       <CardContent className="px-3 py-0">
-        {/* Player name and position */}
-        <div className="mb-4">
+        {/* ----- Player name and position ----- */}
+        <div className="mb-2">
           <h3 className="text-sm md:text-xl font-semibold truncate flex flex-col">
             {name}
-            {age && <span className="text-xs"> {age} anos</span>}
+            {age && <span className="text-xs text-secondary"> {age} anos</span>}
           </h3>
         </div>
 
-        {/* Player additional info */}
+        {/* ----- Player stats ----- */}
         <div className="space-y-3 mb-2">
           {stats && (
-            <div className="grid grid-cols-3 gap-2 pt-3 border-t">
+            <div className="grid grid-cols-3 gap-2 border-t border-secondary">
               {stats.matches !== undefined && (
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary-foreground">
-                    {stats.matches}
+                    {stats.matches === 0 ? "-" : stats.matches}
                   </div>
                   <div className="text-xs text-secondary">Jogos</div>
                 </div>
@@ -71,7 +89,7 @@ export default function PlayerCard({
               {stats.goals !== undefined && (
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary-foreground">
-                    {stats.goals}
+                    {stats.goals === 0 ? "-" : stats.goals}
                   </div>
                   <div className="text-xs text-secondary">Golos</div>
                 </div>
@@ -79,7 +97,7 @@ export default function PlayerCard({
               {stats.assists !== undefined && (
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary-foreground">
-                    {stats.assists}
+                    {stats.assists === 0 ? "-" : stats.assists}
                   </div>
                   <div className="text-xs text-secondary">Assist.</div>
                 </div>

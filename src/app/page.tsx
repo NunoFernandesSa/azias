@@ -12,7 +12,6 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Autres sections de la page d'accueil */}
       <Container className="px-1 py-16 lg:px-16 grid grid-cols-1 xl:grid-cols-2 gap-6 items-center justify-center">
         <NextMatchCard />
         <TeamCard />
