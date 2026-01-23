@@ -1,30 +1,42 @@
+// ---------- Team props ----------
+
 export type TeamLogoAndNameProps = {
   teamLogo: string | undefined;
   teamName: string | undefined;
 };
 
-export type PlayerCardProps = {
-  imageUrl: string;
-  name: string;
-  number: number | null;
-  age?: number | null;
-  isCaptain?: boolean;
-  stats?: {
-    matches?: number;
-    goals?: number;
-    assists?: number;
-  };
-  className?: string;
-};
-
-export type CoachCardProps = {
-  imageUrl: string;
-  name: string;
-  age?: number | string | null;
-  className?: string;
-};
-
+// ---------- Player props ----------
 export type PlayerSectionProps = {
   sectionName: string;
   children: React.ReactNode;
+};
+
+type PlayerPosition = ["Guarda-redes", "Defesas", "Médios", "Avançados"];
+
+export type PlayerProps = {
+  id: string;
+  name: string;
+  number?: number;
+  age: number;
+  imageUrl: string;
+  position: PlayerPosition;
+  stats?: {
+    matches: number;
+    goals: number;
+    assists: number;
+  };
+  cards?: {
+    redCards: number;
+    yellowCards: number;
+  };
+  isCaptain: boolean;
+  className?: string;
+};
+
+// ---------- Coach props ----------
+export type CoachProps = {
+  name: string;
+  age?: number;
+  imageUrl: string;
+  className?: string;
 };

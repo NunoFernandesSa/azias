@@ -1,4 +1,4 @@
-import { TitleProps } from "@/src/types";
+import { TitleProps } from "@/src/types/common";
 
 export default function Title({ children, className }: TitleProps) {
   return (

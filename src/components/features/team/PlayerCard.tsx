@@ -1,23 +1,23 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "../../ui/card";
-import { PlayerCardProps } from "@/src/types/team-props";
+import { PlayerProps } from "@/src/types/team-props";
 
 export default function PlayerCard({
   imageUrl,
   name,
-  number,
   age,
+  number,
   isCaptain,
   stats,
   className,
-}: PlayerCardProps) {
+}: PlayerProps) {
   return (
     <Card
       className={cn(
         "group relative overflow-hidden rounded-xl border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl",
         "bg-gradient-to-b from-background to-muted/50 gap-2 py-0",
         "transform hover:-translate-y-2 transition-transform bg-primary text-primary-foreground",
-        className
+        className,
       )}
     >
       {/* captain badge */}
@@ -33,11 +33,11 @@ export default function PlayerCard({
       )}
 
       {/* play number */}
-      {/* <div className="absolute top-3 left-3 z-20">
+      <div className="absolute top-3 left-3 z-20">
         <div className="bg-primary text-primary-foreground text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
           {number}
         </div>
-      </div> */}
+      </div>
 
       {/* Container image */}
       <div className="relative overflow-hidden">

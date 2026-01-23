@@ -16,7 +16,7 @@ export default function SplashProvider({
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1000);
 
     // TODO: ajouter la logique pour attendre les ressources nécessaires
     // attendre que tes données/joueurs/images soient prêtes
