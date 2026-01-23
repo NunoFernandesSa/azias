@@ -50,9 +50,9 @@ export default function PlayerCard({
       <CardContent className="px-3 py-0">
         {/* Player name and position */}
         <div className="mb-4">
-          <h3 className="text-xl font-semibold truncate flex flex-col">
+          <h3 className="text-sm md:text-xl font-semibold truncate flex flex-col">
             {name}
-            {age && <span className="text-sm font-normal"> {age} anos</span>}
+            {age && <span className="text-xs"> {age} anos</span>}
           </h3>
         </div>
 

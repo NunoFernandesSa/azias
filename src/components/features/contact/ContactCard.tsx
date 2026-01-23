@@ -21,12 +21,17 @@ export default function ContactCard() {
             <Link
               href="https://www.facebook.com/profile.php?id=61565229806192"
               target="_blank"
+              title="Facebook"
             >
               <FaFacebook />
             </Link>
           </Button>
           <Button variant={"secondary"} className="cursor-pointer" asChild>
-            <Link href="https://www.instagram.com/aziasfc" target="_blank">
+            <Link
+              href="https://www.instagram.com/aziasfc"
+              target="_blank"
+              title="Instagram"
+            >
               <FaInstagram />
             </Link>
           </Button>

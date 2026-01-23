@@ -34,7 +34,7 @@ export default function CoachCard({
       <CardContent className="px-3 py-0">
         {/* Player name and position */}
         <div className="mb-4">
-          <h3 className="text-xl font-bold truncate flex flex-col">
+          <h3 className="text-sm md:text-xl font-semibold md:truncate flex flex-col flex-wrap">
             {name}
             {age ? (
               <span className="text-base font-normal"> {age} anos</span>
