@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "../../ui/card";
 import { PlayerProps } from "@/src/types/team-props";
+import CaptainBadge from "./CaptainBadge";
+import Image from "next/image";
 
 export default function PlayerCard({
   imageUrl,
@@ -21,35 +23,27 @@ export default function PlayerCard({
       )}
     >
       {/* captain badge */}
-      {isCaptain && (
-        <div className="absolute top-3 right-3 z-20">
-          <div className="bg-secondary/80 backdrop-blur-md text-primary text-sm font-semibold px-2 py-1 rounded-full border border-secondary/30 shadow-xl">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span>Capitão</span>
-            </div>
-          </div>
-        </div>
-      )}
+      {isCaptain && <CaptainBadge />}
 
       {/* play number */}
-      <div className="absolute top-3 left-3 z-20">
+      {/* <div className="absolute top-3 left-3 z-20">
         <div className="bg-primary text-primary-foreground text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
           {number}
         </div>
-      </div>
+      </div> */}
 
       {/* Container image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden min-h-64 w-full">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-
         {/* Player image */}
-        <img
+        <Image
           src={imageUrl}
           alt={`${name}`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          width={200}
+          height={200}
         />
       </div>
 
@@ -57,9 +51,9 @@ export default function PlayerCard({
       <CardContent className="px-3 py-0">
         {/* Player name and position */}
         <div className="mb-4">
-          <h3 className="text-xl font-bold truncate flex flex-col">
+          <h3 className="text-xl font-semibold truncate flex flex-col">
             {name}
-            {age && <span className="text-base font-normal"> {age} anos</span>}
+            {age && <span className="text-sm font-normal"> {age} anos</span>}
           </h3>
         </div>
 

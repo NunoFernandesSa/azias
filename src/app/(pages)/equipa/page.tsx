@@ -4,7 +4,7 @@ import CoachCard from "@/src/components/features/team/CoachCard";
 import PlayerCard from "@/src/components/features/team/PlayerCard";
 import { PlayersSection } from "@/src/components/features/team/PlayerSection";
 import {
-  Coaches,
+  Coachs,
   Defenders,
   Forwards,
   Goalkeepers,
@@ -43,7 +43,7 @@ export default function TeamPage() {
       </PlayersSection>
 
       <PlayersSection sectionName="Treinadores">
-        {Coaches.map((coach) => (
+        {Coachs.map((coach) => (
           <CoachCard key={coach.id} {...coach} />
         ))}
       </PlayersSection>

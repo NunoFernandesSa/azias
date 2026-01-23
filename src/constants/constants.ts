@@ -615,18 +615,12 @@ export const Forwards = [
   },
 ];
 
-export const Coaches = [
+export const Coachs = [
   {
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Agostinho Costa",
-    age: "",
-  },
-  {
-    id: 2,
-    imageUrl: "/images/players/player-exemple.jpg",
     name: "Alexandre Neiva",
-    age: "",
+    age: null,
   },
 ];
 

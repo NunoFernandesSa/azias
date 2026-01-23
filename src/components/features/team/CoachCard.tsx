@@ -1,20 +1,20 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "../../ui/card";
-import { CoachCardProps } from "@/src/types/team-props";
+import { CoachProps } from "@/src/types/team-props";
 
 export default function CoachCard({
   imageUrl,
   name,
   age,
   className,
-}: CoachCardProps) {
+}: CoachProps) {
   return (
     <Card
       className={cn(
         "group relative overflow-hidden rounded-xl border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl",
         "bg-gradient-to-b from-background to-muted/50 gap-2 py-0",
         "transform hover:-translate-y-2 transition-transform bg-primary text-primary-foreground",
-        className
+        className,
       )}
     >
       {/* Container image */}
