@@ -5,12 +5,14 @@ import { Button } from "../../ui/button";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 export default function Hero() {
+  const heroBg = "/images/bg-hero/hero-img.jpg";
+
   return (
     <div className="relative flex items-end overflow-hidden min-h-screen">
       {/* background image */}
       <Image
-        src="/images/bg-hero/bg-hero.jpg"
-        alt="Logo da equipa FC Azias"
+        src={heroBg}
+        alt="Imagem de fundo"
         fill
         className="absolute object-cover object-center brightness-75 -z-10"
         priority
