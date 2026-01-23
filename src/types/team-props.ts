@@ -14,12 +14,12 @@ export type PlayerSectionProps = {
 type PlayerPosition = ["Guarda-redes", "Defesas", "Médios", "Avançados"];
 
 export type PlayerProps = {
-  id: string;
+  id: string | number;
   name: string;
   number?: number;
   age: number | null;
   imageUrl: string;
-  position: PlayerPosition;
+  position?: PlayerPosition;
   stats?: {
     matches: number;
     goals: number;

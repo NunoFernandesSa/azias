@@ -8,7 +8,6 @@ export default function PlayerCard({
   imageUrl,
   name,
   age,
-  number,
   isCaptain,
   stats,
   className,
