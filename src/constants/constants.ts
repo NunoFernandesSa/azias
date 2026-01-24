@@ -667,4 +667,32 @@ export const products = [
     tags: ["Officiel", "Nouveauté", "Édition limitée"],
     stock: 3,
   },
+  {
+    id: 4,
+    name: "Cachecol oficial de 2025/2026",
+    price: 29.99,
+    originalPrice: 34.99,
+    discount: 15,
+    image:
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
+    rating: 4.5,
+    reviews: 124,
+    shippingPrice: 0,
+    tags: ["Officiel", "Nouveauté", "Édition limitée"],
+    stock: 3,
+  },
+  {
+    id: 5,
+    name: "Cachecol oficial de 2025/2026",
+    price: 29.99,
+    originalPrice: 34.99,
+    discount: 15,
+    image:
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
+    rating: 4.5,
+    reviews: 124,
+    shippingPrice: 0,
+    tags: ["Officiel", "Nouveauté", "Édition limitée"],
+    stock: 3,
+  },
 ];
