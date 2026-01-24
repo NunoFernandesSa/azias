@@ -1,4 +1,18 @@
-export default function ProductPrice({ price, originalPrice }: any) {
+// ---------- React/Next ----------
+import { JSX } from "react";
+// ---------- Types ----------
+import { ProductProps } from "@/src/types/shop-props";
+
+/**
+ * A component to display the price of a product.
+ * It displays the price and an optional original price with a line-through.
+ * @param {ProductProps} props - the product information
+ * @returns {JSX.Element} - the product price component
+ */
+export default function ProductPrice({
+  price = 0,
+  originalPrice,
+}: ProductProps): JSX.Element {
   return (
     <>
       <div>

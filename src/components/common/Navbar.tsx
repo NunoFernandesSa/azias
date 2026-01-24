@@ -25,7 +25,7 @@ export function Navbar() {
       `}
     >
       {isMobile ? (
-        // ---------- Mobile Nav ----------
+        // ---------- Mobile Navigation ----------
         <div className="container mx-auto">
           <nav className="flex items-center justify-between p-1">
             <Link href="/" className="relative w-20 h-20">
@@ -70,10 +70,11 @@ export function Navbar() {
           )}
         </div>
       ) : (
-        // ---------- Desktop Nav ----------
+        // ---------- Desktop Navigation ----------
         <nav className="h-full w-full flex flex-col items-center">
-          <Link href="/" className="mb-3">
-            <div className="relative w-32 h-32 md:w-40 md:h-40">
+          {/* ---------- logo ---------- */}
+          <Link href="/" className="mb-3 rounded-full">
+            <div className="relative w-32 h-32 md:w-28 md:h-28 lg:w-40 lg:h-40 overflow-hidden rounded-full">
               <Image
                 src="/images/azias-fc-logo.webp"
                 alt="Logo da equipa FC Azias"
@@ -84,11 +85,10 @@ export function Navbar() {
               />
             </div>
           </Link>
-
-          {/* ---------- Navigation Desktop ---------- */}
-          <div className="w-full flex flex-col items-center justify-center gap-2">
+          {/* ---------- Navigation links ---------- */}
+          <div className="w-full flex flex-col items-center justify-center gap-0.5">
             {navLinks.map(({ href, label, id }) => {
-              const isActive = pathname === href;
+              const isActive: boolean = pathname === href;
 
               return (
                 <Link
@@ -124,24 +124,23 @@ export function Navbar() {
               );
             })}
           </div>
-
           {/* ---------- Informations additionnelles ---------- */}
-          <div className="mt-auto pb-8 text-center text-white/80 text-sm px-4">
+          <div className="mt-auto pb-3 text-center text-white/80 text-sm px-4">
             <p className="font-bold">Azias FC</p>
-            <div className="flex justify-center space-x-4 mt-4">
+            <div className="flex justify-center space-x-4 mt-2">
               <a
                 href="https://www.facebook.com/profile.php?id=61565229806192"
                 className="hover:text-white transition-colors"
                 target="_blank"
               >
-                <FaFacebook size={30} />
+                <FaFacebook size={26} />
               </a>
               <a
                 href="https://www.instagram.com/aziasfc"
                 className="hover:text-white transition-colors"
                 target="_blank"
               >
-                <FaInstagram size={30} />
+                <FaInstagram size={26} />
               </a>
             </div>
           </div>

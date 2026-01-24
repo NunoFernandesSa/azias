@@ -1,10 +1,14 @@
 "use client";
 
+// ---------- React/Next ----------
 import { useState } from "react";
+// ---------- Components ----------
 import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
+// ---------- Types ----------
+import { ProductProps } from "@/src/types/shop-props";
 
-export default function ProductCard({ product }: any) {
+export default function ProductCard({ ...product }: ProductProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -17,7 +21,6 @@ export default function ProductCard({ product }: any) {
         image={product.image}
         alt={product.name}
         isHovered={isHovered}
-        productName={product.name}
       />
 
       <div className="p-5">
@@ -25,7 +28,6 @@ export default function ProductCard({ product }: any) {
           name={product.name}
           price={product.price}
           originalPrice={product.originalPrice}
-          shippingPrice={product.shippingPrice}
         />
       </div>
     </div>
