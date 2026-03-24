@@ -1,3 +1,7 @@
+// ----- react/nextjs -----
+import { JSX } from "react";
+
+// ----- components -----
 import Container from "../components/common/Container";
 import Hero from "../components/features/hero/Hero";
 import NextMatchCard from "../components/features/matches/NextMatchCard";
@@ -7,7 +11,7 @@ import TeamHistoryCard from "../components/features/team/TeamHistoryCard";
 import ContactCard from "../components/features/contact/ContactCard";
 import MapsCard from "../components/features/contact/MapsCard";
 
-export default function HomePage() {
+export default function HomePage(): JSX.Element {
   return (
     <>
       <Hero />

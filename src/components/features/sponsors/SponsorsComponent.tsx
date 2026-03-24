@@ -43,12 +43,12 @@ export default function SponsorsComponent(): JSX.Element {
       {/* content */}
       <CardHeader>
         <CardTitle className="text-3xl font-bold">
-          Obrigado a quem acredita no Azias FC
+          Obrigado a quem acredita na A.D. Azias !
         </CardTitle>
       </CardHeader>
       <CardContent>
         <p className="font-semibold">
-          Os nossos patrocinadores são parceiros essenciais do Azias FC.
+          Os nossos patrocinadores são parceiros essenciais da A.D. Azias.
         </p>
         <p className="font-semibold">
           Graças à sua confiança e apoio, o nosso clube pode continuar a
@@ -56,7 +56,7 @@ export default function SponsorsComponent(): JSX.Element {
           respeito e união.
         </p>
         <p className="font-semibold">
-          Juntos, estamos a construir o futuro do Azias FC.
+          Juntos, estamos a construir o futuro da A.D. Azias.
         </p>
 
         <p className="font-semibold mt-6">

@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className="container mx-auto h-16 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} Azias FC - Todos os direitos
+            &copy; {new Date().getFullYear()} A.D. AZIAS - Todos os direitos
             reservados
           </p>
 

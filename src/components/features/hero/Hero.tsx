@@ -16,7 +16,7 @@ import { JSX } from "react";
 export default function Hero(): JSX.Element {
   const heroBg = "/images/bg-hero/hero-img.jpg";
 
-  const title = "AZIAS FC";
+  const title = "A.D. AZIAS";
   const subtitle = "Um clube. Uma família. Uma paixão.";
 
   return (

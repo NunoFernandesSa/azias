@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Azias FC - Equipa de Futebol Amador | Liga Inatel Portugal",
+  title: "A.D. AZIAS FC - Equipa de Futebol Amador | Liga Inatel Portugal",
   description:
-    "O Azias FC é uma equipa de futebol amador de Ponte da Barca que participa na Liga Inatel em Portugal. Combinando competição e um ambiente amigável. Futebol de competição com espírito desportivo e convívio. Junte-se à nossa equipa!",
+    "O A.D. Azias é uma equipa de futebol amador de Ponte da Barca que participa na Liga Inatel em Portugal. Combinando competição e um ambiente amigável. Futebol de competição com espírito desportivo e convívio. Junte-se à nossa equipa!",
   keywords: [
     "Site oficial",
-    "Azias FC",
+    "A.D. Azias",
     "Futebol amador em Portugal",
     "Ligua Inatel",
     "equipa de futebol amador Portugal",
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
     { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
   ],
   openGraph: {
-    title: "Azias FC - Equipa de Futebol Amador | Liga Inatel Portugal",
+    title: "A.D. Azias - Equipa de Futebol Amador | Liga Inatel Portugal",
     description:
-      "Junta-te ao Azias FC, uma equipa de futebol amador que participa na Liga Inatel em Portugal. Ambiente amigável e competição desportiva!",
+      "Junta-te ao A.D. Azias, uma equipa de futebol amador que participa na Liga Inatel em Portugal. Ambiente amigável e competição desportiva!",
     type: "website",
     locale: "pt_PT",
-    siteName: "Azias FC",
+    siteName: "A.D. Azias",
   },
 };
 

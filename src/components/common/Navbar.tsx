@@ -126,7 +126,7 @@ export function Navbar() {
           </div>
           {/* ---------- Informations additionnelles ---------- */}
           <div className="mt-auto pb-3 text-center text-white/80 text-sm px-4">
-            <p className="font-bold">Azias FC</p>
+            <p className="font-bold">A.D. AZIAS</p>
             <div className="flex justify-center space-x-4 mt-2">
               <a
                 href="https://www.facebook.com/profile.php?id=61565229806192"
