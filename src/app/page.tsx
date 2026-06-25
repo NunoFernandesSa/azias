@@ -1,3 +1,8 @@
+/**
+ * @author: Nuno Fernandes
+ * @license MIT
+ */
+
 // ----- react/nextjs -----
 import { JSX } from "react";
 
