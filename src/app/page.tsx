@@ -29,7 +29,7 @@ export default function HomePage(): JSX.Element {
         <TeamCard />
       </Container>
 
-      <Container className="w-full lg:w-1/2 mx-auto px-2">
+      <Container className="w-full max-w-6xl my-16 mx-auto px-2">
         <TeamHistoryCard />
       </Container>
 
@@ -37,7 +37,7 @@ export default function HomePage(): JSX.Element {
         <SponsorsComponent />
       </Container>
 
-      <Container className="px-1 lg:mx-16 my-16 grid grid-cols-1 xl:grid-cols-[3fr_7fr] gap-6">
+      <Container className="w-full max-w-7xl px-2 lg:px-8 my-16 mx-auto grid grid-cols-1 xl:grid-cols-[3.5fr_6.5fr] gap-6">
         <ContactCard />
         <MapsCard />
       </Container>
