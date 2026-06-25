@@ -5,143 +5,171 @@ import { useIsMobile } from "@/src/hooks/useIsMobile";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // Pour détecter la page active
-import { useState } from "react";
-import { BiMenu, BiX } from "react-icons/bi";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { JSX, useEffect, useRef, useState } from "react";
+import { BiChevronRight, BiMenu, BiX } from "react-icons/bi";
 
-export function Navbar() {
+export function Navbar(): JSX.Element {
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const mobileNavRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isMenuOpen || !isMobile) return;
+
+    function handlePointerDown(event: MouseEvent | TouchEvent): void {
+      const target = event.target as Node | null;
+      if (!target) return;
+
+      if (mobileNavRef.current?.contains(target)) return;
+      setIsMenuOpen(false);
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+    };
+  }, [isMenuOpen, isMobile]);
 
   return (
     <header
       className={`
         ${
           isMobile
-            ? "fixed top-0 left-0 right-0 bg-primary z-50 shadow-lg"
-            : "lg:h-screen lg:w-48 bg-primary lg:fixed top-0 left-0"
+            ? "fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md shadow-lg"
+            : "lg:fixed top-0 left-0 lg:h-screen lg:w-48 overflow-hidden border-r border-white/10 bg-primary"
         }
       `}
     >
       {isMobile ? (
         // ---------- Mobile Navigation ----------
-        <div className="container mx-auto">
-          <nav className="flex items-center justify-between p-1">
-            <Link href="/" className="relative w-20 h-20">
-              <Image
-                src="/images/azias-fc-logo.webp"
-                alt="Logo da equipa FC Azias"
-                fill
-                sizes="56px"
-                className="rounded-full object-cover"
-                priority
-              />
+        <div
+          ref={mobileNavRef as React.RefObject<HTMLDivElement>}
+          className="relative"
+        >
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_28%)]"
+          />
+
+          <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative h-14 w-14 overflow-hidden rounded-full border border-white/15 bg-white/10">
+                <Image
+                  src="/images/azias-fc-logo.webp"
+                  alt="Logo da equipa FC Azias"
+                  fill
+                  sizes="56px"
+                  className="rounded-full object-cover"
+                  priority
+                />
+              </div>
             </Link>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white p-2 rounded-lg hover:bg-white/20 transition-colors"
+              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <BiX size={28} /> : <BiMenu size={28} />}
             </button>
           </nav>
 
           {isMenuOpen && (
-            <div className="px-4 pb-4 animate-fade-in">
-              <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/20">
-                {navLinks.map(({ href, label, id }) => (
-                  <Link
-                    key={id}
-                    href={href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`
-                      block px-4 py-3 mb-2 rounded-lg font-semibold transition-all
-                      text-white hover:bg-white/20 hover:scale-[1.02]
-                      ${pathname === href ? "bg-white/20" : ""}
-                    `}
-                  >
-                    {label.toUpperCase()}
-                  </Link>
-                ))}
+            <div className="relative animate-fade-in border-t border-white/10 px-4 pb-4">
+              <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md">
+                <div className="space-y-2">
+                  {navLinks.map(({ href, label, id }) => (
+                    <Link
+                      key={id}
+                      href={href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`
+                        flex items-center justify-between rounded-xl px-4 py-3 font-semibold transition-all
+                        ${
+                          pathname === href
+                            ? "bg-white text-primary shadow-lg"
+                            : "text-white hover:bg-white/15"
+                        }
+                      `}
+                    >
+                      <span>{label.toUpperCase()}</span>
+                      <BiChevronRight
+                        className={
+                          pathname === href ? "text-primary" : "text-secondary"
+                        }
+                        size={18}
+                      />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           )}
         </div>
       ) : (
         // ---------- Desktop Navigation ----------
-        <nav className="h-full w-full flex flex-col items-center">
-          {/* ---------- logo ---------- */}
-          <Link href="/" className="mb-3 rounded-full">
-            <div className="relative w-32 h-32 md:w-28 md:h-28 lg:w-40 lg:h-40 overflow-hidden rounded-full">
-              <Image
-                src="/images/azias-fc-logo.webp"
-                alt="Logo da equipa FC Azias"
-                fill
-                sizes="(max-width: 1024px) 128px, 160px"
-                className="rounded-full object-cover"
-                priority
-              />
-            </div>
-          </Link>
-          {/* ---------- Navigation links ---------- */}
-          <div className="w-full flex flex-col items-center justify-center gap-0.5">
-            {navLinks.map(({ href, label, id }) => {
-              const isActive: boolean = pathname === href;
+        <nav className="relative flex h-full w-full flex-col px-3 py-5">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_26%)]"
+          />
 
-              return (
-                <Link
-                  key={id}
-                  href={href}
-                  className={`
-                    relative overflow-hidden
-                    font-semibold text-sm lg:text-base
-                    px-6 py-3 w-full max-w-xs
-                    transition-all duration-300 ease-out
-                    
-                    ${
-                      isActive
-                        ? "text-primary bg-white shadow-lg"
-                        : "text-white hover:text-primary"
-                    }
-
-                    before:absolute before:inset-0
-                    before:bg-gradient-to-r before:from-white before:to-white/80
-                    before:transition-transform before:duration-300 before:ease-out
-                    before:-translate-x-full
-                    before:-z-10
-
-                    hover:before:translate-x-0
-                    hover:shadow-xl
-                    active:scale-[0.98]
-                  `}
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    {label.toUpperCase()}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-          {/* ---------- Informations additionnelles ---------- */}
-          <div className="mt-auto pb-3 text-center text-white/80 text-sm px-4">
-            <p className="font-bold">A.D. AZIAS</p>
-            <div className="flex justify-center space-x-4 mt-2">
-              <a
-                href="https://www.facebook.com/profile.php?id=61565229806192"
-                className="hover:text-white transition-colors"
-                target="_blank"
+          <div className="relative z-10 flex flex-1 flex-col">
+            <div className="rounded-3xl border border-white/10 bg-white/8 p-3 backdrop-blur-sm">
+              <Link
+                href="/"
+                className="flex items-center justify-center rounded-2xl border border-white/10 bg-primary/25 p-4"
               >
-                <FaFacebook size={26} />
-              </a>
-              <a
-                href="https://www.instagram.com/aziasfc"
-                className="hover:text-white transition-colors"
-                target="_blank"
-              >
-                <FaInstagram size={26} />
-              </a>
+                <div className="relative h-28 w-28 overflow-hidden rounded-full border border-white/15 bg-white/10">
+                  <Image
+                    src="/images/azias-fc-logo.webp"
+                    alt="Logo da equipa FC Azias"
+                    fill
+                    sizes="112px"
+                    className="rounded-full object-cover"
+                    priority
+                  />
+                </div>
+              </Link>
+
+              <p className="px-3 py-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-secondary">
+                Navegação
+              </p>
+              <div className="flex flex-col gap-2">
+                {navLinks.map(({ href, label, id }) => {
+                  const isActive: boolean = pathname === href;
+
+                  return (
+                    <Link
+                      key={id}
+                      href={href}
+                      className={`
+                        group relative flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 ease-out
+                        ${
+                          isActive
+                            ? "bg-white text-primary shadow-lg"
+                            : "text-white/85 hover:bg-white/12 hover:text-white"
+                        }
+                      `}
+                    >
+                      <span>{label.toUpperCase()}</span>
+                      <BiChevronRight
+                        size={18}
+                        className={`transition-transform duration-300 ${
+                          isActive
+                            ? "text-primary"
+                            : "text-secondary group-hover:translate-x-0.5"
+                        }`}
+                      />
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </nav>
