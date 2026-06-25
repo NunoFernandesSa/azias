@@ -25,86 +25,94 @@ import { cn } from "@/lib/utils";
 export default function PlayerCard({
   imageUrl,
   name,
+  number,
   age,
   isCaptain,
   stats,
   className,
 }: PlayerProps): JSX.Element {
+  const hasNumber = typeof number === "number" && number > 0;
+  const statItems = [
+    { label: "Jogos", value: stats?.matches },
+    { label: "Golos", value: stats?.goals },
+    { label: "Assist.", value: stats?.assists },
+  ].filter((item) => item.value !== undefined);
+
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden rounded-xl border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl",
-        "bg-gradient-to-b from-background to-muted/50 gap-2 py-0",
-        "transform hover:-translate-y-2 transition-transform bg-primary text-primary-foreground",
+        "group relative isolate overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-b from-primary to-primary/90 py-0 text-primary-foreground shadow-lg shadow-primary/10 transition-all duration-300 hover:-translate-y-1.5 hover:border-secondary/40 hover:shadow-2xl hover:shadow-primary/15",
         className,
       )}
     >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_24%)]"
+      />
+
       {/* ----- Captain badge ----- */}
       {isCaptain && <CaptainBadge />}
 
-      {/* TODO: implement player number badge in the future */}
-      {/* <div className="absolute top-3 left-3 z-20">
-        <div className="bg-primary text-primary-foreground text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
-          {number}
+      {hasNumber ? (
+        <div className="absolute left-3 top-3 z-20">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-primary/80 text-lg font-bold text-white shadow-lg shadow-primary/20 backdrop-blur-sm">
+            {number}
+          </div>
         </div>
-      </div> */}
+      ) : null}
 
       {/* ----- Container image ----- */}
-      <div className="relative overflow-hidden min-h-64 w-full">
+      <div className="relative min-h-64 w-full overflow-hidden">
         {/* ----- Gradient overlay ----- */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary via-primary/20 to-transparent" />
         {/* ----- Player image ----- */}
         <Image
           src={imageUrl}
-          alt={`${name}`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          alt={name}
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
-          width={200}
-          height={200}
+          width={480}
+          height={640}
         />
       </div>
 
       {/* ----- Content ----- */}
-      <CardContent className="px-3 py-0">
-        {/* ----- Player name and position ----- */}
-        <div className="mb-2">
-          <h3 className="text-sm md:text-xl font-semibold truncate flex flex-col">
-            {name}
-            {age && <span className="text-xs text-secondary"> {age} anos</span>}
-          </h3>
+      <CardContent className="relative z-10 px-4 pb-4 pt-4">
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-secondary">
+              Plantel
+            </p>
+            <h3 className="mt-1 truncate text-base font-bold tracking-tight md:text-lg">
+              {name}
+            </h3>
+          </div>
+
+          {age ? (
+            <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-primary-foreground/85">
+              {age} anos
+            </span>
+          ) : null}
         </div>
 
-        {/* ----- Player stats ----- */}
-        <div className="space-y-3 mb-2">
-          {stats && (
-            <div className="grid grid-cols-3 gap-2 border-t border-secondary">
-              {stats.matches !== undefined && (
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-foreground">
-                    {stats.matches === 0 ? "-" : stats.matches}
-                  </div>
-                  <div className="text-xs text-secondary">Jogos</div>
+        {statItems.length > 0 ? (
+          <div className="grid grid-cols-3 gap-2">
+            {statItems.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-white/10 bg-white/8 px-2 py-3 text-center backdrop-blur-sm"
+              >
+                <div className="text-xl font-bold text-white md:text-2xl">
+                  {item.value}
                 </div>
-              )}
-              {stats.goals !== undefined && (
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-foreground">
-                    {stats.goals === 0 ? "-" : stats.goals}
-                  </div>
-                  <div className="text-xs text-secondary">Golos</div>
+                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-secondary">
+                  {item.label}
                 </div>
-              )}
-              {stats.assists !== undefined && (
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-foreground">
-                    {stats.assists === 0 ? "-" : stats.assists}
-                  </div>
-                  <div className="text-xs text-secondary">Assist.</div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
       </CardContent>
     </Card>
   );
