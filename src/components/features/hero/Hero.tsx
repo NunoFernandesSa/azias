@@ -22,7 +22,7 @@ export default function Hero(): JSX.Element {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-hidden min-h-dvh"
+      className="relative isolate overflow-hidden min-h-dvh"
     >
       <Image
         src={heroBg}
@@ -30,11 +30,11 @@ export default function Hero(): JSX.Element {
         aria-hidden="true"
         fill
         sizes="100vw"
-        className="absolute object-cover object-center brightness-75 -z-10"
+        className="absolute inset-0 object-cover object-center brightness-75"
         priority
       />
 
-      <div className="w-full min-h-dvh flex flex-col justify-end items-center bg-linear-to-t from-primary via-primary/70 to-background/20 gap-6 pb-10 sm:pb-12">
+      <div className="relative z-10 w-full min-h-dvh flex flex-col justify-end items-center bg-linear-to-t from-primary via-primary/70 to-background/20 gap-6 pb-10 sm:pb-12">
         <div className="w-full max-w-5xl px-6 text-center animate-fade-in">
           <h1
             id="hero-title"

@@ -1,1 +1,1 @@
-export type NextMatchProps = {};
+export type NextMatchProps = Record<string, never>;
