@@ -6,12 +6,12 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { JSX } from "react";
 
 /**
- * A hero component for the main page.
+ * Hero component that serves as the main landing section of the website.
+ * Features a full-viewport background image with overlay gradient, centered content
+ * including the club name, tagline, and primary call-to-action buttons for navigation.
  *
- * Displays a background image and a content
- * section with a title, a subtitle and two buttons.
- *
- * @returns {JSX.Element} - the hero component
+ * @component
+ * @returns {JSX.Element} Rendered Hero section with background media, content, and scroll prompt
  */
 export default function Hero(): JSX.Element {
   const heroBg = "/images/hero/hero-img.jpg";
@@ -20,55 +20,70 @@ export default function Hero(): JSX.Element {
   const subtitle = "Um clube. Uma família. Uma paixão.";
 
   return (
-    <div className="relative flex items-end overflow-hidden min-h-screen">
-      {/* ----- background image ----- */}
+    <section
+      aria-labelledby="hero-title"
+      className="relative overflow-hidden min-h-dvh"
+    >
       <Image
         src={heroBg}
-        alt="Imagem de fundo"
+        alt=""
+        aria-hidden="true"
         fill
+        sizes="100vw"
         className="absolute object-cover object-center brightness-75 -z-10"
         priority
       />
 
-      {/* ----- Content ----- */}
-      <div className="w-full h-screen flex flex-col justify-end items-center bg-linear-to-t from-primary via-primary/70 to-background/20 gap-6 pb-10">
-        <h2 className="text-6xl md:text-8xl lg:text-10xl xl:text-[12rem] font-bold text-primary-foreground/70">
-          {title}
-        </h2>
-        <p className="lg:text-2xl text-xl text-primary-foreground/80 mt-6 italic">
-          {subtitle}
-        </p>
-
-        {/* ----- CTA Buttons ----- */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full px-6">
-          <Button
-            asChild
-            variant={"default"}
-            size="lg"
-            className="w-full sm:w-1/3 lg:w-1/4"
+      <div className="w-full min-h-dvh flex flex-col justify-end items-center bg-linear-to-t from-primary via-primary/70 to-background/20 gap-6 pb-10 sm:pb-12">
+        <div className="w-full max-w-5xl px-6 text-center animate-fade-in">
+          <h1
+            id="hero-title"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-primary-foreground/80"
           >
-            <Link href="/calendario">
-              <BiCalendar /> Ver calendário
-            </Link>
-          </Button>
+            {title}
+          </h1>
+          <p className="mt-6 text-xl lg:text-2xl text-primary-foreground/85 italic">
+            {subtitle}
+          </p>
 
-          <Button
-            asChild
-            variant={"outline"}
-            size="lg"
-            className="w-full sm:w-1/3 lg:w-1/4"
-          >
-            <Link href="/contacto">
-              <BiPhone /> Entrar em contato
-            </Link>
-          </Button>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+            <Button
+              asChild
+              variant={"default"}
+              size="lg"
+              className="w-full sm:w-1/3 lg:w-1/4"
+            >
+              <Link href="/calendario">
+                <BiCalendar /> Ver calendário
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              variant={"outline"}
+              size="lg"
+              className="w-full sm:w-1/3 lg:w-1/4"
+            >
+              <Link href="/contacto">
+                <BiPhone /> Entrar em contato
+              </Link>
+            </Button>
+          </div>
         </div>
 
-        {/* ----- Scroll Down Indicator ----- */}
-        <div className="mt-8 animate-bounce">
-          <MdKeyboardDoubleArrowDown size={40} className="text-secondary/50" />
+        <div className="mt-8 motion-safe:animate-bounce motion-reduce:animate-none">
+          <Link
+            href="#home-content"
+            aria-label="Aller au contenu"
+            className="inline-flex items-center justify-center rounded-full outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+          >
+            <MdKeyboardDoubleArrowDown
+              size={40}
+              className="text-secondary/60"
+            />
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

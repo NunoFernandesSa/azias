@@ -21,7 +21,10 @@ export default function HomePage(): JSX.Element {
     <>
       <Hero />
 
-      <Container className="px-1 py-16 lg:px-16 grid grid-cols-1 xl:grid-cols-2 gap-6 items-center justify-center">
+      <Container
+        id="home-content"
+        className="px-1 py-16 lg:px-16 grid grid-cols-1 xl:grid-cols-2 gap-6 items-center justify-center"
+      >
         <NextMatchCard />
         <TeamCard />
       </Container>
