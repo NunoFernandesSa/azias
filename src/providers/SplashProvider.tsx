@@ -11,7 +11,7 @@ export default function SplashProvider({
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
-  const logo = "/images/azias-fc-logo.webp";
+  const logo = "/images/logo-ada.png";
 
   useEffect(() => {
     const timer = setTimeout(() => {
