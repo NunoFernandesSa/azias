@@ -46,27 +46,6 @@ export default function Footer(): JSX.Element {
                 Um clube movido pela paixão pelo futebol, pela ligação à
                 comunidade e pela vontade de representar Azias com orgulho.
               </p>
-
-              <div className="flex items-center gap-4">
-                <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-white/12 bg-white/95 p-2">
-                  <Image
-                    src="/images/azias-fc-logo.webp"
-                    alt="Emblema da A.D. Azias"
-                    fill
-                    sizes="64px"
-                    className="object-contain p-2"
-                  />
-                </div>
-                <div className="relative h-16 w-16 overflow-hidden rounded-2xl border border-white/12 bg-white/95 p-2">
-                  <Image
-                    src="/images/logo-inatel.webp"
-                    alt="Logo INATEL"
-                    fill
-                    sizes="64px"
-                    className="object-contain p-2"
-                  />
-                </div>
-              </div>
             </div>
 
             <div>

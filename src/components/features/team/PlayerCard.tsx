@@ -78,35 +78,37 @@ export default function PlayerCard({
       </div>
 
       {/* ----- Content ----- */}
-      <CardContent className="relative z-10 px-4 pb-4 pt-4">
-        <div className="mb-4 flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-secondary">
+      <CardContent className="relative z-10 px-3 pb-4 pt-4 sm:px-4">
+        <div className="mb-4">
+          <div className="min-w-0 w-full">
+            <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary">
               Plantel
             </p>
-            <h3 className="mt-1 truncate text-base font-bold tracking-tight md:text-lg">
-              {name}
-            </h3>
-          </div>
+            <div className="mt-1 flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
+              <h3 className="text-sm font-bold tracking-tight leading-tight break-words sm:text-base md:text-lg">
+                {name}
+              </h3>
 
-          {age ? (
-            <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-primary-foreground/85">
-              {age} anos
-            </span>
-          ) : null}
+              {age ? (
+                <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-semibold text-primary-foreground/85 sm:px-3 sm:text-xs">
+                  {age} anos
+                </span>
+              ) : null}
+            </div>
+          </div>
         </div>
 
         {statItems.length > 0 ? (
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
             {statItems.map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl border border-white/10 bg-white/8 px-2 py-3 text-center backdrop-blur-sm"
+                className="flex min-h-[78px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/8 px-1.5 py-2 text-center backdrop-blur-sm sm:min-h-[88px] sm:px-2 sm:py-3"
               >
-                <div className="text-xl font-bold text-white md:text-2xl">
+                <div className="text-lg font-bold text-white sm:text-xl md:text-2xl">
                   {item.value}
                 </div>
-                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-secondary">
+                <div className="mt-1 flex min-h-[24px] w-full items-center justify-center text-center text-[9px] sm:text-[11px] md:text-xs font-semibold uppercase tracking-[0.04em] text-secondary leading-tight">
                   {item.label}
                 </div>
               </div>
