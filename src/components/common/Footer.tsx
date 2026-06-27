@@ -26,7 +26,7 @@ export default function Footer(): JSX.Element {
               <div className="flex items-center gap-4">
                 <div className="relative h-18 w-18 overflow-hidden rounded-full border border-white/15 bg-white/10 p-1">
                   <Image
-                    src="/images/azias-fc-logo.webp"
+                    src="/images/logo-ada.png"
                     alt="Logo da A.D. Azias"
                     fill
                     sizes="72px"

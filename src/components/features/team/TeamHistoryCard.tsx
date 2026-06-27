@@ -106,7 +106,7 @@ export default function TeamHistoryCard(): JSX.Element {
           <div className="space-y-5">
             <div className="mx-auto flex w-fit items-center justify-center rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
               <Image
-                src="/images/azias-fc-logo.webp"
+                src="/images/logo-ada.png"
                 alt="Logo do Azias FC"
                 width={160}
                 height={160}
