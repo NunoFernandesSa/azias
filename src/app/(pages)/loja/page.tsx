@@ -1,12 +1,7 @@
 // ---------- React/Next ----------
 import Link from "next/link";
 import { JSX } from "react";
-import {
-  BiEnvelope,
-  BiPackage,
-  BiPhoneCall,
-  BiShieldQuarter,
-} from "react-icons/bi";
+import { BiEnvelope, BiPackage, BiPhoneCall } from "react-icons/bi";
 
 // ---------- Components ----------
 import Container from "@/src/components/common/Container";
@@ -38,10 +33,6 @@ export default function ShoppingPage(): JSX.Element {
   const email = "azias-fc@gmail.com";
   const phoneHref = `tel:+351${phoneNumber}`;
   const emailHref = `mailto:${email}`;
-  const productCount = products.length;
-  const discountedProducts = products.filter(
-    (product) => typeof product.discount === "number" && product.discount > 0,
-  ).length;
 
   return (
     <Container className="mx-3 lg:mx-16 my-30 lg:my-16 pt-6 lg:pt-0">

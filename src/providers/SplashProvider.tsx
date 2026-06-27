@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Spinner } from "@components/common/Spinner";
 import { useEffect, useState } from "react";
 
+const SPLASH_DURATION_MS = 1000;
+
 export default function SplashProvider({
   children,
 }: {
@@ -16,7 +18,7 @@ export default function SplashProvider({
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, SPLASH_DURATION_MS);
 
     // TODO: ajouter la logique pour attendre les ressources nécessaires
     // attendre que tes données/joueurs/images soient prêtes
@@ -28,13 +30,18 @@ export default function SplashProvider({
   return (
     <>
       {isLoading && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-primary to-primary/90 w-screen h-screen">
+        <div
+          aria-live="polite"
+          aria-label="Chargement de l'application"
+          className="fixed inset-0 z-50 flex min-h-dvh w-full flex-col items-center justify-center bg-gradient-to-br from-primary to-primary/90"
+        >
           <Image
             src={logo}
-            alt="Logo du club"
+            alt="Logo do clube"
             width={320}
             height={320}
-            className="w-80 h-80"
+            sizes="(max-width: 768px) 240px, 320px"
+            className="h-60 w-60 md:h-80 md:w-80"
             priority
           />
 
@@ -47,9 +54,10 @@ export default function SplashProvider({
       )}
 
       <div
+        aria-hidden={isLoading}
         className={
           isLoading
-            ? "opacity-0"
+            ? "pointer-events-none select-none opacity-0"
             : "opacity-100 transition-opacity duration-300"
         }
       >
