@@ -21,7 +21,7 @@ import { JSX } from "react";
 export default function ContactCard(): JSX.Element {
   const phoneNumber = "+351 932 287 445";
   const phoneHref = "tel:+351932287445";
-  const email = "azias-fc@gmail.com";
+  const email = "assdesazias@gmail.com";
   const emailHref = `mailto:${email}`;
   const address = "Campo de Futebol da Manguela, Azias - Ponte da Barca";
   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
