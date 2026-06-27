@@ -123,18 +123,16 @@ export function Navbar(): JSX.Element {
             <div className="rounded-3xl border border-white/10 bg-white/8 p-3 backdrop-blur-sm">
               <Link
                 href="/"
-                className="flex items-center justify-center rounded-2xl border border-white/10 bg-primary/25 p-4"
+                className="flex items-center justify-center rounded-2xl border border-white/10 bg-primary/25"
               >
-                <div className="relative h-28 w-28 overflow-hidden rounded-full border border-white/15 bg-white/10">
-                  <Image
-                    src="/images/azias-fc-logo.webp"
-                    alt="Logo da equipa FC Azias"
-                    fill
-                    sizes="112px"
-                    className="rounded-full object-cover"
-                    priority
-                  />
-                </div>
+                <Image
+                  src="/images/azias-fc-logo.webp"
+                  alt="Logo da equipa FC Azias"
+                  width={300}
+                  height={300}
+                  className="h-auto w-full rounded-full object-cover"
+                  priority
+                />
               </Link>
 
               <p className="px-3 py-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-secondary">
