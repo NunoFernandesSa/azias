@@ -28,7 +28,7 @@ export const navLinks = [
 
 export const aziasFC = {
   id: 1,
-  name: "Azias FC",
+  name: "AD Azias",
   logo: "/images/azias-fc-logo.webp",
 };
 
@@ -330,7 +330,7 @@ export const sponsors = [
   },
   {
     id: 5,
-    name: "Varandas do Lima",
+    name: "",
     logo: ".",
     website: "",
   },
@@ -364,8 +364,8 @@ export const Goalkeepers = [
   {
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Leandro",
-    number: 1,
+    name: "Carol",
+    number: 99,
     age: 23,
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
@@ -373,8 +373,8 @@ export const Goalkeepers = [
   {
     id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Koké",
-    number: 2,
+    name: "Xixo",
+    number: 77,
     age: 31,
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
@@ -386,62 +386,53 @@ export const Defenders = [
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Marcus",
-    number: 0,
-    age: 38,
+    number: 26,
+    age: 0, // 02/12/1986
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Pura Jr",
-    number: 0,
-    age: 19,
+    name: "Michel",
+    number: 3,
+    age: 0, // 07/10/2004
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 3,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Russo",
-    number: 0,
-    age: 45,
+    name: "Telmo",
+    number: 4,
+    age: 0, // 09/03/1991
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 4,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Pura",
-    number: 0,
-    age: 24,
+    name: "Berna",
+    number: 5,
+    age: 0, // 01/08/2003
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 5,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Berna",
-    number: 0,
-    age: 22,
+    name: "Coelho",
+    number: 39,
+    age: 0, // 06/11/1987
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
-    id: 6,
+    id: 5,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Vitor",
-    number: 0,
-    age: 22,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 7,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Miguel",
-    number: 0,
-    age: 21,
+    name: "Rafa",
+    number: 2,
+    age: 0, // 18/02/2003
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -452,8 +443,8 @@ export const Midfielders = [
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Nuno",
-    number: 0,
-    age: 22,
+    number: 17,
+    age: 0, // 12/04/2003
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -461,17 +452,17 @@ export const Midfielders = [
     id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Cardoso",
-    number: 0,
-    age: 26,
+    number: 8,
+    age: 0, // 18/06/1999
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 3,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Vitor",
-    number: 0,
-    age: 31,
+    name: "Vitor Folia",
+    number: 24,
+    age: 0, // 31/10/2002
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -479,8 +470,8 @@ export const Midfielders = [
     id: 4,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Luis Dias",
-    number: 0,
-    age: 22,
+    number: 10,
+    age: 0, // 30/08/2002
     isCaptain: true,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -488,8 +479,8 @@ export const Midfielders = [
     id: 5,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Pedro",
-    number: 0,
-    age: 25,
+    number: 6,
+    age: 0, // 23/10/2000
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -497,26 +488,8 @@ export const Midfielders = [
     id: 6,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Zé Duarte",
-    number: 0,
-    age: 29,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 7,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Mario",
-    number: 0,
-    age: 28,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 8,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Rato",
-    number: 0,
-    age: 39,
+    number: 7,
+    age: 0, // 27/04/1996
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -526,90 +499,45 @@ export const Forwards = [
   {
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Ricardo",
-    number: 0,
-    age: 35,
+    name: "Vivas",
+    number: 18,
+    age: 0, // 27/04/1996
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Rafa",
-    number: 0,
-    age: 22,
+    name: "Rato",
+    number: 11,
+    age: 0, // 11/08/1985
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 3,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Tiago",
-    number: 0,
-    age: 27,
+    name: "Mulingue",
+    number: 9,
+    age: 0, // 08/01/2003
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 4,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Vivas",
-    number: 0,
-    age: 29,
+    name: "Pixo",
+    number: 15,
+    age: 0, // 08/06/1998
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
     id: 5,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Telmo",
-    number: 0,
-    age: 33,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 6,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Henrique",
-    number: 0,
-    age: 40,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 7,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Fernando",
-    number: 0,
-    age: 55,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 8,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Gil",
-    number: 0,
-    age: 31,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 9,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Daniel Sa",
-    number: 0,
-    age: 31,
-    isCaptain: false,
-    stats: { matches: 0, goals: 0, assists: 0 },
-  },
-  {
-    id: 10,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Pedro",
-    number: 0,
-    age: 22,
+    name: "Pure Jr",
+    number: 13,
+    age: 0, // 21/05/2006
     isCaptain: false,
     stats: { matches: 0, goals: 0, assists: 0 },
   },
@@ -619,17 +547,75 @@ export const Coachs = [
   {
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Alexandre Neiva",
+    name: "João Lomba",
+    age: null, // 25/03/1974
+  },
+  {
+    id: 3,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "",
+    age: null,
+  },
+  {
+    id: 3,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "",
     age: null,
   },
 ];
 
+// TODO: add technical team and direction to components
+export const TechnicalTeam = [
+  {
+    id: 1,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "",
+    age: null,
+  },
+  {
+    id: 3,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "",
+    age: null,
+  },
+  {
+    id: 3,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "",
+    age: null,
+  },
+];
+
+export const DirectionTeam = [
+  {
+    id: 1,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "Nando",
+    age: null,
+  },
+  {
+    id: 3,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "Chico",
+    age: null,
+  },
+  {
+    id: 3,
+    imageUrl: "/images/players/player-exemple.jpg",
+    name: "Rocha",
+    age: null,
+  },
+];
+
+/**
+ * @description Products list
+ */
 export const products = [
   {
     id: 1,
-    name: "Cachecol oficial de 2025/2026",
-    price: 29.99,
-    originalPrice: 34.99,
+    name: "Cachecol oficial",
+    price: 10,
+    originalPrice: 15,
     discount: 15,
     image:
       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
@@ -641,9 +627,9 @@ export const products = [
   },
   {
     id: 2,
-    name: "Cachecol oficial de 2025/2026",
-    price: 29.99,
-    originalPrice: 34.99,
+    name: "T-shirt",
+    price: 25,
+    originalPrice: 50,
     discount: 15,
     image:
       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
@@ -655,9 +641,9 @@ export const products = [
   },
   {
     id: 3,
-    name: "Cachecol oficial de 2025/2026",
-    price: 29.99,
-    originalPrice: 34.99,
+    name: "Bob",
+    price: 10,
+    originalPrice: 20,
     discount: 15,
     image:
       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
@@ -669,9 +655,9 @@ export const products = [
   },
   {
     id: 4,
-    name: "Cachecol oficial de 2025/2026",
-    price: 29.99,
-    originalPrice: 34.99,
+    name: "Fato de treino",
+    price: 50,
+    originalPrice: 50,
     discount: 15,
     image:
       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
@@ -683,9 +669,23 @@ export const products = [
   },
   {
     id: 5,
-    name: "Cachecol oficial de 2025/2026",
-    price: 29.99,
-    originalPrice: 34.99,
+    name: "Equipamento completo",
+    price: 40,
+    originalPrice: 40,
+    discount: 15,
+    image:
+      "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
+    rating: 4.5,
+    reviews: 124,
+    shippingPrice: 0,
+    tags: ["Officiel", "Nouveauté", "Édition limitée"],
+    stock: 3,
+  },
+  {
+    id: 6,
+    name: "Casaco de fato de treino",
+    price: 25,
+    originalPrice: 25,
     discount: 15,
     image:
       "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?auto=format&fit=crop&w=800",
