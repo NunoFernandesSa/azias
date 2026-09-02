@@ -535,7 +535,7 @@ export const Forwards = [
   {
     id: 5,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "Pure Jr",
+    name: "Pura Jr",
     number: 13,
     age: 0, // 21/05/2006
     isCaptain: false,
