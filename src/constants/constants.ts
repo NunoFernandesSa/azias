@@ -428,7 +428,7 @@ export const Defenders = [
     stats: { matches: 0, goals: 0, assists: 0 },
   },
   {
-    id: 5,
+    id: 6,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "Rafa",
     number: 2,
@@ -551,7 +551,7 @@ export const Coachs = [
     age: null, // 25/03/1974
   },
   {
-    id: 3,
+    id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "",
     age: null,
