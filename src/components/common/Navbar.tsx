@@ -59,7 +59,7 @@ export function Navbar(): JSX.Element {
             <Link href="/" className="flex items-center gap-3">
               <div className="relative h-14 w-14 overflow-hidden rounded-full border border-white/15 bg-white/10">
                 <Image
-                  src="/images/logo-ada.png"
+                  src="/images/logo-ada.jpg"
                   alt="Logo da equipa FC Azias"
                   fill
                   sizes="56px"
@@ -123,14 +123,14 @@ export function Navbar(): JSX.Element {
             <div className="rounded-3xl border border-white/10 bg-white/8 p-3 backdrop-blur-sm">
               <Link
                 href="/"
-                className="flex items-center justify-center rounded-2xl border border-white/10 bg-primary/25"
+                className="flex items-center justify-center rounded-2xl"
               >
                 <Image
-                  src="/images/logo-ada.png"
+                  src="/images/logo-ada.jpg"
                   alt="Logo da equipa FC Azias"
                   width={300}
                   height={300}
-                  className="h-auto w-full rounded-full object-cover"
+                  className="h-auto w-full object-cover rounded-xl"
                   priority
                 />
               </Link>
