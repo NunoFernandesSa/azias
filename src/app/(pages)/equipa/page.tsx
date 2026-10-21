@@ -3,17 +3,11 @@ import Image from "next/image";
 import { JSX } from "react";
 
 // ---------- Components ----------
-import Container from "@/src/components/common/Container";
-import Title from "@/src/components/common/Title";
+import PageIntro from "@/src/components/common/PageIntro";
 import CoachCard from "@/src/components/features/team/CoachCard";
 import PlayerCard from "@/src/components/features/team/PlayerCard";
 import { PlayersSection } from "@/src/components/features/team/PlayerSection";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
+import { SiteSection } from "@/src/components/layout/SiteSection";
 
 // ---------- Constants ----------
 import {
@@ -73,78 +67,54 @@ export default function TeamPage(): JSX.Element {
   ];
 
   return (
-    <Container className="my-30 px-3 pt-6 lg:mx-16 lg:my-16 lg:pt-0">
-      <div className="space-y-10">
-        <Card className="relative isolate overflow-hidden rounded-[2rem] border-primary/15 bg-gradient-to-br from-primary via-primary to-primary/85 text-primary-foreground shadow-xl shadow-primary/10">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.14),_transparent_24%)]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute -left-12 top-8 h-40 w-40 rounded-full bg-white/10 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-secondary/20 blur-3xl"
-          />
-
-          <CardHeader className="relative z-10 gap-6 pb-0">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm font-semibold text-white/90 backdrop-blur-sm">
-                Plantel 2025/2026
-              </span>
-              <span className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-4 py-1 text-sm font-semibold text-primary-foreground/80">
-                Azias, Ponte da Barca
-              </span>
-            </div>
-
-            <CardTitle className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-              <div className="space-y-5">
-                <div className="space-y-4">
-                  <Title className="text-left text-white">
-                    A Nossa Equipa 2025/2026
-                  </Title>
-                  <p className="max-w-3xl text-base leading-7 text-primary-foreground/85 md:text-lg">
-                    Um grupo construído para competir com identidade, ambição e
-                    espírito coletivo. Aqui encontras o plantel principal e a
-                    equipa técnica que representam a A.D. Azias nesta época.
+    <SiteSection className="pt-28 md:pt-32" size="wide">
+      <div className="space-y-12">
+        <PageIntro
+          eyebrow="Plantel 2025/2026"
+          title="A Nossa Equipa"
+          description="Um grupo construído para competir com identidade, ambição e espírito coletivo. Aqui encontras o plantel principal e a equipa técnica que representam a A.D. Azias nesta época."
+          stats={overviewStats}
+          aside={
+            <div className="grid gap-5">
+              <div className="flex items-center gap-5 border-b border-primary/10 pb-5">
+                <Image
+                  src="/images/logo-ada.jpg"
+                  alt="Logo da A.D. Azias"
+                  width={96}
+                  height={96}
+                  sizes="96px"
+                  className="border border-primary/10 object-contain"
+                  priority
+                />
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+                    Azias, Ponte da Barca
+                  </p>
+                  <p className="text-base leading-7 text-muted-foreground">
+                    Plantel principal e estrutura técnica numa leitura mais
+                    sóbria, mais editorial e mais alinhada com a identidade do
+                    clube.
                   </p>
                 </div>
-
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {overviewStats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur-sm"
-                    >
-                      <p className="text-2xl font-bold text-white md:text-3xl">
-                        {stat.value}
-                      </p>
-                      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
-                        {stat.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="mx-auto flex w-full max-w-xs items-center justify-center rounded-[2rem] border border-white/12 bg-white/10 p-6 backdrop-blur-sm">
-                  <Image
-                    src="/images/logo-ada.jpg"
-                    alt="Logo da A.D. Azias"
-                    width={220}
-                    height={220}
-                    sizes="220px"
-                    className="h-36 w-36 object-contain drop-shadow-2xl"
-                    priority
-                  />
+              {captain ? (
+                <div className="grid gap-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">
+                    Capitão
+                  </p>
+                  <p className="text-2xl font-bold tracking-tight text-primary">
+                    {captain.name}
+                  </p>
+                  <p className="text-sm leading-7 text-muted-foreground">
+                    Referência dentro e fora de campo, com responsabilidade,
+                    liderança e ligação ao grupo.
+                  </p>
                 </div>
-              </div>
-            </CardTitle>
-          </CardHeader>
-        </Card>
+              ) : null}
+            </div>
+          }
+        />
 
         {squadSections.map(({ sectionName, description, players }) => (
           <PlayersSection
@@ -177,6 +147,6 @@ export default function TeamPage(): JSX.Element {
           </PlayersSection>
         ) : null}
       </div>
-    </Container>
+    </SiteSection>
   );
 }

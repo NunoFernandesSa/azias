@@ -18,11 +18,14 @@ export default function ProductInfo({
 }: ProductProps): JSX.Element {
   return (
     <>
-      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-primary transition-colors">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary/65">
+        Loja oficial
+      </p>
+      <h3 className="mb-2 mt-3 line-clamp-2 text-lg font-bold text-primary transition-colors group-hover:text-primary/80">
         {name}
       </h3>
 
-      <div className="flex items-center justify-between mt-6">
+      <div className="mt-6 flex items-center justify-between">
         <ProductPrice price={price} originalPrice={originalPrice} />
       </div>
     </>

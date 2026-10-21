@@ -4,16 +4,10 @@ import { JSX } from "react";
 import { BiEnvelope, BiPackage, BiPhoneCall } from "react-icons/bi";
 
 // ---------- Components ----------
-import Container from "@/src/components/common/Container";
-import Title from "@/src/components/common/Title";
+import PageIntro from "@/src/components/common/PageIntro";
 import ShopGrid from "@/src/components/features/shop/ShopGrid";
+import { SiteSection } from "@/src/components/layout/SiteSection";
 import { Button } from "@/src/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
 
 // ---------- Constants ----------
 import { products } from "@/src/constants/constants";
@@ -33,83 +27,42 @@ export default function ShoppingPage(): JSX.Element {
   const email = "azias-fc@gmail.com";
   const phoneHref = `tel:+351${phoneNumber}`;
   const emailHref = `mailto:${email}`;
+  const stats = [
+    { value: products.length, label: "Produtos disponíveis" },
+    { value: "2", label: "Canais de encomenda" },
+  ];
 
   return (
-    <Container className="mx-3 lg:mx-16 my-30 lg:my-16 pt-6 lg:pt-0">
-      <div className="flex items-center justify-center flex-col gap-6 text-center">
-        <Title className="text-primary">Loja Oficial</Title>
-        <p className="max-w-3xl text-base md:text-lg font-medium md:font-semibold text-primary">
-          Descubra a nossa coleção oficial, apoie o clube e encomende os seus
-          produtos de forma simples, direta e sem complicações.
-        </p>
-      </div>
-
-      <Card className="relative isolate mt-10 overflow-hidden rounded-2xl border-primary/15 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/10">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.14),_transparent_24%)]"
-        />
-
-        <CardHeader className="relative z-10 gap-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm font-semibold text-white/90 backdrop-blur-sm">
-              Loja do clube
-            </span>
-          </div>
-
-          <CardTitle className="space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold">
-              Equipe-se com as cores da A.D. Azias
-            </h1>
-            <p className="max-w-3xl text-base md:text-lg leading-relaxed text-primary-foreground/85">
-              Cada encomenda ajuda a dar mais visibilidade ao clube e a apoiar a
-              nossa presença dentro e fora de campo.
-            </p>
-          </CardTitle>
-        </CardHeader>
-
-        <CardContent className="relative z-10 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-              <div className="flex items-center gap-3 text-secondary">
-                <BiPackage size={22} />
-                <p className="text-sm font-semibold uppercase tracking-[0.18em]">
+    <SiteSection className="pt-28 md:pt-32" size="wide">
+      <PageIntro
+        eyebrow="Loja oficial"
+        title="Merch do Clube"
+        description="Descobre a coleção oficial da A.D. Azias, apoia o clube e encomenda os teus produtos de forma simples, direta e sem complicações."
+        stats={stats}
+        aside={
+          <div className="space-y-5">
+            <div className="flex items-start gap-3 border-b border-primary/10 pb-5">
+              <BiPackage size={20} className="mt-1 text-primary" />
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
                   Como encomendar
                 </p>
-              </div>
-              <div className="mt-4 space-y-3 text-base leading-7 text-primary-foreground/90">
-                <p>
-                  Contacte-nos por telefone ou e-mail e indique o nome do
-                  produto, o tamanho pretendido e os seus dados de contacto.
-                </p>
-                <p>
-                  Depois confirmaremos a disponibilidade, o pagamento e a forma
-                  de entrega ou recolha.
-                </p>
-                <p>
-                  Processo simples, rápido e pensado para facilitar a encomenda.
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Indica o produto, o tamanho pretendido e os teus dados de
+                  contacto. Depois confirmamos disponibilidade, pagamento e
+                  entrega.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button
-                asChild
-                variant="secondary"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
+              <Button asChild variant="secondary" size="lg" className="rounded-sm px-6">
                 <Link href={phoneHref}>
                   <BiPhoneCall />
                   Ligar agora
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto bg-transparent text-white hover:text-primary"
-              >
+              <Button asChild variant="outline" size="lg" className="rounded-sm px-6">
                 <Link href={emailHref}>
                   <BiEnvelope />
                   Enviar e-mail
@@ -117,11 +70,12 @@ export default function ShoppingPage(): JSX.Element {
               </Button>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        }
+      />
 
-      {/* ----- shop ----- */}
-      <ShopGrid products={products} />
-    </Container>
+      <div className="pt-12 md:pt-16">
+        <ShopGrid products={products} />
+      </div>
+    </SiteSection>
   );
 }

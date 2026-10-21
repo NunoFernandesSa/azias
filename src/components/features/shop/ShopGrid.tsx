@@ -23,14 +23,30 @@ export default function ShopGrid({
   products: ProductProps[];
 }): JSX.Element {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <section className="space-y-10">
+      <div className="grid gap-4 border-t border-primary/10 pt-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+        <div className="space-y-2">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+            Coleção disponível
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
+            Produtos oficiais da A.D. Azias
+          </h2>
+        </div>
+
+        <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+          Escolhe os produtos oficiais do clube e leva contigo as cores da A.D.
+          Azias, dentro e fora dos dias de jogo.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map(
           (product: ProductProps): JSX.Element => (
             <ProductCard key={product.id} {...product} />
           ),
         )}
       </div>
-    </div>
+    </section>
   );
 }

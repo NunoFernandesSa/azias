@@ -17,11 +17,11 @@ export default function ProductPrice({
     <>
       <div>
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-gray-900">
+          <span className="text-2xl font-bold text-primary">
             {price.toFixed(2)}€
           </span>
           {originalPrice && (
-            <span className="text-sm text-gray-400 line-through">
+            <span className="text-sm text-muted-foreground line-through">
               {originalPrice.toFixed(2)}€
             </span>
           )}

@@ -1,4 +1,5 @@
 // ---------- React/Next ----------
+import Image from "next/image";
 import { JSX } from "react";
 // ---------- Types ----------
 import { ProductImageProps } from "@/src/types/shop-props";
@@ -17,17 +18,19 @@ export default function ProductImage({
   isHovered,
 }: ProductImageProps): JSX.Element {
   return (
-    <div className="relative h-64 overflow-hidden">
-      <img
-        src={image}
-        alt={alt}
-        className={`w-full h-full object-cover transition-transform duration-500 ${
+    <div className="relative h-72 overflow-hidden border border-primary/10 bg-muted/30">
+      <Image
+        src={image || "/images/logo-ada.jpg"}
+        alt={alt || "Produto A.D. Azias"}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+        className={`object-cover transition-transform duration-500 ${
           isHovered ? "scale-110" : "scale-100"
         }`}
       />
 
       <div
-        className={`absolute inset-0 bg-gradient-to-t from-black/20 to-transparent transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-gradient-to-t from-primary/18 to-transparent transition-opacity duration-300 ${
           isHovered ? "opacity-100" : "opacity-0"
         }`}
       />

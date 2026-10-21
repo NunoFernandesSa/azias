@@ -3,7 +3,6 @@ import Link from "next/link";
 
 // ---------- Components ----------
 import { Button } from "../../ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
 
 // ---------- Icons ----------
 import { BiEnvelope, BiMapPin, BiPhoneCall, BiTimeFive } from "react-icons/bi";
@@ -48,31 +47,26 @@ export default function ContactCard(): JSX.Element {
   ];
 
   return (
-    <Card
-      aria-labelledby="contact-title"
-      className="relative isolate overflow-hidden border-primary/15 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/10"
-    >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.16),_transparent_26%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.14),_transparent_24%)]"
-      />
-
-      <CardHeader className="relative z-10 gap-4">
-        <span className="inline-flex w-fit items-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm font-semibold text-white/90 backdrop-blur-sm">
+    <section aria-labelledby="contact-title" className="space-y-8">
+      <div className="space-y-4">
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
           Falar connosco
-        </span>
-        <CardTitle className="space-y-3">
-          <h2 id="contact-title" className="text-3xl md:text-4xl font-bold">
+        </p>
+        <div className="space-y-3">
+          <h2
+            id="contact-title"
+            className="text-3xl font-bold tracking-tight text-primary md:text-4xl"
+          >
             Informações de contacto
           </h2>
-          <p className="max-w-md text-base md:text-lg leading-relaxed text-primary-foreground/85">
+          <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
             Estamos disponíveis para esclarecer dúvidas, receber apoios e
             aproximar mais pessoas do clube.
           </p>
-        </CardTitle>
-      </CardHeader>
+        </div>
+      </div>
 
-      <CardContent className="relative z-10 flex flex-col gap-6">
+      <div className="flex flex-col gap-8">
         <div className="grid gap-4">
           {contactItems.map(({ icon: Icon, label, value, href, external }) => (
             <Link
@@ -80,16 +74,16 @@ export default function ContactCard(): JSX.Element {
               href={href}
               target={external ? "_blank" : undefined}
               rel={external ? "noreferrer" : undefined}
-              className="group flex items-start gap-4 rounded-2xl border border-white/12 bg-white/10 p-4 transition-all duration-300 hover:bg-white/14 hover:shadow-lg hover:shadow-primary/10"
+              className="group flex items-start gap-4 border-b border-primary/10 pb-5 transition-colors duration-300 hover:text-primary"
             >
-              <div className="rounded-full bg-secondary/90 p-3 text-primary">
+              <div className="border border-primary/10 bg-muted/40 p-3 text-primary">
                 <Icon size={20} />
               </div>
               <div className="min-w-0">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                   {label}
                 </p>
-                <p className="mt-1 text-base md:text-lg font-semibold leading-7 text-white break-words">
+                <p className="mt-1 break-words text-base font-semibold leading-7 text-primary md:text-lg">
                   {value}
                 </p>
               </div>
@@ -97,21 +91,21 @@ export default function ContactCard(): JSX.Element {
           ))}
         </div>
 
-        <div className="rounded-2xl border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-          <div className="flex items-center gap-3 text-secondary">
+        <div className="border-t border-primary/10 pt-6">
+          <div className="flex items-center gap-3 text-primary">
             <BiTimeFive size={22} />
             <p className="text-sm font-semibold uppercase tracking-[0.18em]">
               Disponibilidade
             </p>
           </div>
-          <p className="mt-3 text-base leading-7 text-primary-foreground/85">
+          <p className="mt-3 max-w-xl text-base leading-7 text-muted-foreground">
             Envie-nos uma mensagem e responderemos assim que possível. Também
             pode acompanhar a atividade do clube nas redes sociais.
           </p>
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <Button variant={"secondary"} className="cursor-pointer" asChild>
+          <Button variant={"secondary"} className="cursor-pointer rounded-sm" asChild>
             <Link
               href="https://www.facebook.com/profile.php?id=61565229806192"
               target="_blank"
@@ -122,7 +116,7 @@ export default function ContactCard(): JSX.Element {
               Facebook
             </Link>
           </Button>
-          <Button variant={"secondary"} className="cursor-pointer" asChild>
+          <Button variant={"secondary"} className="cursor-pointer rounded-sm" asChild>
             <Link
               href="https://www.instagram.com/aziasfc"
               target="_blank"
@@ -134,7 +128,7 @@ export default function ContactCard(): JSX.Element {
             </Link>
           </Button>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }
