@@ -102,9 +102,9 @@ export default function TeamCard(): JSX.Element {
 
         <Button
           asChild
-          variant="secondary"
+          variant="default"
           size="lg"
-          className="w-full rounded-full md:w-auto"
+          className="w-full rounded-full border border-[#1375d0]/15 md:w-auto"
         >
           <Link href="/equipa">Ver plantel</Link>
         </Button>

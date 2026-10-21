@@ -56,13 +56,23 @@ export default function ShoppingPage(): JSX.Element {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild variant="secondary" size="lg" className="rounded-sm px-6">
+              <Button
+                asChild
+                variant="default"
+                size="lg"
+                className="rounded-sm border border-[#1375d0]/15 px-6"
+              >
                 <Link href={phoneHref}>
                   <BiPhoneCall />
                   Ligar agora
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-sm px-6">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-sm px-6"
+              >
                 <Link href={emailHref}>
                   <BiEnvelope />
                   Enviar e-mail

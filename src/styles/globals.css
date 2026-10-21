@@ -45,8 +45,8 @@
   /* --- ÉLÉMENTS SECONDAIRES --- */
 
   /* Accents de marque */
-  --secondary: #f3c84a;
-  --secondary-foreground: #16304d;
+  --secondary: #dde4eb;
+  --secondary-foreground: #17324a;
   --accent: #1375d0;
   --accent-foreground: #f8fbff;
 
@@ -74,8 +74,8 @@
   --primary: #20384f;
   --primary-foreground: #f8fbff;
 
-  --secondary: #f3c84a;
-  --secondary-foreground: #102033;
+  --secondary: #314153;
+  --secondary-foreground: #f4f8fc;
   --accent: #2d8ce4;
   --accent-foreground: #f8fbff;
 

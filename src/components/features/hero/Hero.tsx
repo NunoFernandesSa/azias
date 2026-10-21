@@ -52,7 +52,7 @@ export default function Hero(): JSX.Element {
         <div className="flex min-h-[calc(100svh-5rem)] flex-col justify-end">
           <div className="animate-fade-in max-w-5xl space-y-8 pb-12 md:pb-16">
             <p className="text-sm font-semibold uppercase tracking-[0.26em] text-secondary">
-              Clube amador com presença premium
+              Associação Desportiva de Azias
             </p>
 
             <div className="space-y-5">
@@ -70,9 +70,9 @@ export default function Hero(): JSX.Element {
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button
                 asChild
-                variant="secondary"
+                variant="default"
                 size="lg"
-                className="w-full rounded-sm px-7 sm:w-auto"
+                className="w-full rounded-sm border border-[#1375d0]/15 px-7 sm:w-auto"
               >
                 <Link href="/calendario">
                   <BiCalendar />
