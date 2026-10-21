@@ -40,7 +40,7 @@ export default function SponsorsComponent(): JSX.Element {
       className="relative isolate overflow-hidden rounded-2xl border-primary/15 bg-gradient-to-br from-primary to-primary/75 text-primary-foreground shadow-xl shadow-primary/10"
     >
       <Image
-        src="/images/background/bg-match-card.jpg"
+        src="/images/background-images/bg-match-card.jpg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"

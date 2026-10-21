@@ -1,21 +1,22 @@
 "use client";
 
 import { navLinks } from "@/src/constants/constants";
-import { useIsMobile } from "@/src/hooks/useIsMobile";
+import { SiteContainer } from "@/src/components/layout/SiteSection";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Pour détecter la page active
+import { usePathname } from "next/navigation";
 import { JSX, useEffect, useRef, useState } from "react";
 import { BiChevronRight, BiMenu, BiX } from "react-icons/bi";
 
+import { Button } from "../ui/button";
+
 export function Navbar(): JSX.Element {
-  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const mobileNavRef = useRef<HTMLElement | null>(null);
+  const mobileNavRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!isMenuOpen || !isMobile) return;
+    if (!isMenuOpen) return;
 
     function handlePointerDown(event: MouseEvent | TouchEvent): void {
       const target = event.target as Node | null;
@@ -32,146 +33,132 @@ export function Navbar(): JSX.Element {
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("touchstart", handlePointerDown);
     };
-  }, [isMenuOpen, isMobile]);
+  }, [isMenuOpen]);
 
   return (
-    <header
-      className={`
-        ${
-          isMobile
-            ? "fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md shadow-lg"
-            : "lg:fixed top-0 left-0 lg:h-screen lg:w-48 overflow-hidden border-r border-white/10 bg-primary"
-        }
-      `}
-    >
-      {isMobile ? (
-        // ---------- Mobile Navigation ----------
-        <div
-          ref={mobileNavRef as React.RefObject<HTMLDivElement>}
-          className="relative"
-        >
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_28%)]"
-          />
+    <header className="sticky top-0 z-50 border-b border-primary/10 bg-background/78 backdrop-blur-xl">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(8,13,77,0.06),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_28%)]"
+      />
 
-          <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
+      <SiteContainer className="relative">
+        <div ref={mobileNavRef} className="relative">
+          <div className="flex h-20 items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-14 w-14 overflow-hidden rounded-full border border-white/15 bg-white/10">
+              <div className="relative h-12 w-12 overflow-hidden border border-primary/10 bg-primary/5 p-1 shadow-sm">
                 <Image
                   src="/images/logo-ada.jpg"
-                  alt="Logo da equipa FC Azias"
+                  alt="Logo da A.D. Azias"
                   fill
-                  sizes="56px"
-                  className="rounded-full object-cover"
+                  sizes="48px"
+                  className="object-cover"
                   priority
                 />
+              </div>
+
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                  Site oficial
+                </p>
+                <p className="text-base font-bold tracking-tight text-primary">
+                  A.D. Azias
+                </p>
               </div>
             </Link>
 
+            <nav className="hidden items-center gap-2 lg:flex">
+              {navLinks.map(({ href, label, id }) => {
+                const isActive = pathname === href;
+
+                return (
+                  <Link
+                    key={id}
+                    href={href}
+                    className={`
+                      border-b px-3 py-2 text-sm font-semibold transition-all duration-300
+                      ${
+                        isActive
+                          ? "border-primary text-primary"
+                          : "border-transparent text-primary/75 hover:border-primary/30 hover:text-primary"
+                      }
+                    `}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="hidden items-center gap-3 lg:flex">
+              <Button
+                asChild
+                variant="secondary"
+                size="lg"
+                className="rounded-sm px-6"
+              >
+                <Link href="/contacto">Contactar o clube</Link>
+              </Button>
+            </div>
+
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+              onClick={() => setIsMenuOpen((current) => !current)}
+              className="inline-flex items-center justify-center border border-primary/10 bg-background p-2 text-primary shadow-sm transition-colors hover:bg-muted lg:hidden"
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? <BiX size={28} /> : <BiMenu size={28} />}
+              {isMenuOpen ? <BiX size={26} /> : <BiMenu size={26} />}
             </button>
-          </nav>
-
-          {isMenuOpen && (
-            <div className="relative animate-fade-in border-t border-white/10 px-4 pb-4">
-              <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md">
-                <div className="space-y-2">
-                  {navLinks.map(({ href, label, id }) => (
-                    <Link
-                      key={id}
-                      href={href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`
-                        flex items-center justify-between rounded-xl px-4 py-3 font-semibold transition-all
-                        ${
-                          pathname === href
-                            ? "bg-white text-primary shadow-lg"
-                            : "text-white hover:bg-white/15"
-                        }
-                      `}
-                    >
-                      <span>{label.toUpperCase()}</span>
-                      <BiChevronRight
-                        className={
-                          pathname === href ? "text-primary" : "text-secondary"
-                        }
-                        size={18}
-                      />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      ) : (
-        // ---------- Desktop Navigation ----------
-        <nav className="relative flex h-full w-full flex-col px-3 py-5">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_26%)]"
-          />
-
-          <div className="relative z-10 flex flex-1 flex-col">
-            <div className="rounded-3xl border border-white/10 bg-white/8 p-3 backdrop-blur-sm">
-              <Link
-                href="/"
-                className="flex items-center justify-center rounded-2xl"
-              >
-                <Image
-                  src="/images/logo-ada.jpg"
-                  alt="Logo da equipa FC Azias"
-                  width={300}
-                  height={300}
-                  className="h-auto w-full object-cover rounded-xl"
-                  priority
-                />
-              </Link>
-
-              <p className="px-3 py-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-secondary">
-                Navegação
-              </p>
-              <div className="flex flex-col gap-2">
-                {navLinks.map(({ href, label, id }) => {
-                  const isActive: boolean = pathname === href;
-
-                  return (
-                    <Link
-                      key={id}
-                      href={href}
-                      className={`
-                        group relative flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-all duration-300 ease-out
-                        ${
-                          isActive
-                            ? "bg-white text-primary shadow-lg"
-                            : "text-white/85 hover:bg-white/12 hover:text-white"
-                        }
-                      `}
-                    >
-                      <span>{label.toUpperCase()}</span>
-                      <BiChevronRight
-                        size={18}
-                        className={`transition-transform duration-300 ${
-                          isActive
-                            ? "text-primary"
-                            : "text-secondary group-hover:translate-x-0.5"
-                        }`}
-                      />
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
           </div>
-        </nav>
-      )}
+
+          {isMenuOpen ? (
+            <div className="animate-fade-in border-t border-primary/8 pb-5 pt-4 lg:hidden">
+              <div className="border border-primary/10 bg-background/95 p-3 shadow-xl shadow-primary/5">
+                <div className="space-y-2">
+                  {navLinks.map(({ href, label, id }) => {
+                    const isActive = pathname === href;
+
+                    return (
+                      <Link
+                        key={id}
+                        href={href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`
+                          flex items-center justify-between border-b px-4 py-3 text-sm font-semibold transition-all duration-300
+                          ${
+                            isActive
+                              ? "border-primary text-primary"
+                              : "border-primary/8 text-primary hover:bg-muted"
+                          }
+                        `}
+                      >
+                        <span>{label}</span>
+                        <BiChevronRight
+                          size={18}
+                          className={
+                            isActive
+                              ? "text-primary-foreground"
+                              : "text-muted-foreground"
+                          }
+                        />
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                <Button
+                  asChild
+                  variant="secondary"
+                  size="lg"
+                  className="mt-4 w-full rounded-sm"
+                >
+                  <Link href="/contacto">Contactar o clube</Link>
+                </Button>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </SiteContainer>
     </header>
   );
 }

@@ -4,6 +4,7 @@ import { JSX } from "react";
 import { BiEnvelope, BiMapPin, BiPhoneCall } from "react-icons/bi";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
+import { SiteContainer } from "@/src/components/layout/SiteSection";
 import { navLinks } from "@/src/constants/constants";
 
 export default function Footer(): JSX.Element {
@@ -13,24 +14,24 @@ export default function Footer(): JSX.Element {
   const address = "Campo de Futebol da Manguela, Azias - Ponte da Barca";
 
   return (
-    <footer className="relative overflow-hidden bg-primary text-primary-foreground lg:ml-48 lg:w-[calc(100%-12rem)]">
+    <footer className="relative overflow-hidden border-t border-primary/10 bg-primary text-primary-foreground">
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_26%)]"
       />
 
       <div className="relative">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <SiteContainer className="py-12 lg:py-14">
           <div className="grid gap-10 border-b border-white/10 pb-8 md:grid-cols-2 xl:grid-cols-[1.2fr_0.8fr_0.9fr_0.9fr]">
             <div className="space-y-5">
               <div className="flex items-center gap-4">
-                <div className="relative h-18 w-18 overflow-hidden rounded-full border border-white/15 bg-white/10 p-1">
+                <div className="relative h-16 w-16 overflow-hidden border border-white/15 bg-white/10 p-1.5">
                   <Image
-                    src="/images/logo-ada.png"
+                    src="/images/logo-ada.jpg"
                     alt="Logo da A.D. Azias"
                     fill
                     sizes="72px"
-                    className="rounded-full object-cover"
+                    className="object-cover"
                     priority
                   />
                 </div>
@@ -113,7 +114,7 @@ export default function Footer(): JSX.Element {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook da A.D. Azias"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition-all hover:bg-white hover:text-primary"
+                  className="inline-flex h-11 w-11 items-center justify-center border border-white/15 bg-white/10 text-white transition-all hover:bg-white hover:text-primary"
                 >
                   <FaFacebook size={20} />
                 </Link>
@@ -122,7 +123,7 @@ export default function Footer(): JSX.Element {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram da A.D. Azias"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition-all hover:bg-white hover:text-primary"
+                  className="inline-flex h-11 w-11 items-center justify-center border border-white/15 bg-white/10 text-white transition-all hover:bg-white hover:text-primary"
                 >
                   <FaInstagram size={20} />
                 </Link>
@@ -135,10 +136,10 @@ export default function Footer(): JSX.Element {
               &copy; {currentYear} A.D. AZIAS. Todos os direitos reservados.
             </p>
             <p>
-              Desenvolvido para valoriser o clube, os parceiros e a comunidade.
+              Desenvolvido para valorizar o clube, os parceiros e a comunidade.
             </p>
           </div>
-        </div>
+        </SiteContainer>
       </div>
     </footer>
   );

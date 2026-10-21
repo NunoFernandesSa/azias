@@ -141,35 +141,9 @@ export default function TeamPage(): JSX.Element {
                     priority
                   />
                 </div>
-
-                <div className="rounded-[1.75rem] border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
-                    Destaque da época
-                  </p>
-                  <p className="mt-3 text-xl font-bold text-white">
-                    {captain ? captain.name : "Capitão por anunciar"}
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-primary-foreground/80">
-                    Liderança em campo, compromisso competitivo e ligação entre
-                    a identidade do clube e o rendimento da equipa.
-                  </p>
-                </div>
               </div>
             </CardTitle>
           </CardHeader>
-
-          <CardContent className="relative z-10 pt-8">
-            <div className="rounded-[1.75rem] border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
-                Visão geral
-              </p>
-              <p className="mt-3 max-w-4xl text-base leading-7 text-primary-foreground/90 md:text-lg">
-                A página foi organizada por setores para tornar a navegação mais
-                clara, valorizar cada atleta e dar uma leitura mais profissional
-                do plantel e do staff técnico.
-              </p>
-            </div>
-          </CardContent>
         </Card>
 
         {squadSections.map(({ sectionName, description, players }) => (

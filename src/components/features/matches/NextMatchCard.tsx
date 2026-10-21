@@ -16,90 +16,8 @@ import {
 import { BiMapPin, BiTimer } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 // ---------- constants ----------
-import { aziasFC, calendar } from "@/src/constants/constants";
-
-type NormalizedMatch = {
-  date?: string;
-  hour?: string;
-  address?: string;
-  home: { name: string; logo: string };
-  away: { name: string; logo: string };
-};
-
-function parseDateDDMMYYYY(value: string): Date | null {
-  if (!/^\d{2}\/\d{2}\/\d{4}$/.test(value)) return null;
-
-  const [dayRaw, monthRaw, yearRaw] = value.split("/");
-  const day = Number(dayRaw);
-  const month = Number(monthRaw);
-  const year = Number(yearRaw);
-
-  if (
-    !Number.isFinite(day) ||
-    !Number.isFinite(month) ||
-    !Number.isFinite(year)
-  ) {
-    return null;
-  }
-
-  const date = new Date(year, month - 1, day);
-  if (Number.isNaN(date.getTime())) return null;
-
-  return date;
-}
-
-function startOfDay(date: Date): Date {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-}
-
-function daysUntil(target: Date, now = new Date()): number {
-  const diffMs = startOfDay(target).getTime() - startOfDay(now).getTime();
-  return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
-}
-
-function normalizeMatch(
-  item: (typeof calendar)[number],
-): NormalizedMatch | null {
-  if (!item) return null;
-
-  if ("opposingTeam" in item) {
-    const playAtHome = Boolean(item.playAtHome);
-    const opponent = {
-      name: item.opposingTeam,
-      logo: item.opposingTeamLogo,
-    };
-
-    return {
-      date: item.date,
-      hour: item.hour,
-      address: item.address,
-      home: playAtHome
-        ? { name: aziasFC.name, logo: aziasFC.logo }
-        : { name: opponent.name ?? "", logo: opponent.logo ?? "" },
-      away: playAtHome
-        ? { name: opponent.name ?? "", logo: opponent.logo ?? "" }
-        : { name: aziasFC.name, logo: aziasFC.logo },
-    };
-  }
-
-  if ("team" in item && item.team) {
-    return {
-      date: item.match?.date,
-      hour: item.match?.hour,
-      address: item.match?.address,
-      home: {
-        name: item.team.teamPlayingAtHome,
-        logo: item.team.teamPlayingAtHomeLogo,
-      },
-      away: {
-        name: item.team.teamPlayingAway,
-        logo: item.team.teamPlayingAwayLogo,
-      },
-    };
-  }
-
-  return null;
-}
+import { calendar } from "@/src/constants/constants";
+import { daysUntil, normalizeMatch, parseDateDDMMYYYY } from "./match-utils";
 
 export default function NextMatchCard(): JSX.Element {
   const normalized = calendar.map(normalizeMatch);
@@ -131,44 +49,48 @@ export default function NextMatchCard(): JSX.Element {
   return (
     <Card
       aria-labelledby="next-match-title"
-      className={
-        "relative isolate bg-gradient-to-r from-primary to-primary/70 rounded-lg text-primary-foreground"
-      }
+      className="relative isolate overflow-hidden rounded-[2rem] border border-primary/15 bg-gradient-to-br from-primary via-primary to-primary/80 py-0 text-primary-foreground shadow-xl shadow-primary/10"
     >
       <Image
         src="/images/background-images/bg-match-card.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover rounded-lg"
+        className="absolute inset-0 h-full w-full object-cover"
         fill
         sizes="(max-width: 1280px) 100vw, 50vw"
         priority
       />
+      <div aria-hidden="true" className="absolute inset-0 bg-primary/80" />
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-lg bg-primary/85"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.14),_transparent_24%)]"
       />
 
-      <CardHeader className="relative z-10">
+      <CardHeader className="relative z-10 gap-4">
         <CardTitle className="flex flex-col gap-2">
-          <h2 id="next-match-title" className="text-3xl font-bold">
+          <span className="inline-flex w-fit items-center rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm font-semibold text-white/90 backdrop-blur-sm">
+            Próximo jogo
+          </span>
+          <h2 id="next-match-title" className="text-3xl font-bold md:text-4xl">
             Próximo Jogo
           </h2>
           {countdownText ? (
-            <p className="text-secondary text-md">🕒 {countdownText}</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+              {countdownText}
+            </p>
           ) : null}
         </CardTitle>
       </CardHeader>
-      <CardContent className="relative z-10">
+      <CardContent className="relative z-10 space-y-8">
         {nextMatch ? (
           <>
-            <div className="flex items-center justify-center gap-3 lg:gap-6">
+            <div className="grid items-center gap-4 rounded-[1.75rem] border border-white/12 bg-white/8 p-5 backdrop-blur-sm md:grid-cols-[1fr_auto_1fr]">
               <TeamLogoAndName
                 teamLogo={nextMatch.home.logo}
                 teamName={nextMatch.home.name}
               />
               <span
-                className="text-xl lg:text-4xl font-bold text-secondary"
+                className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-xl font-bold text-secondary lg:text-2xl"
                 aria-hidden="true"
               >
                 X
@@ -181,40 +103,56 @@ export default function NextMatchCard(): JSX.Element {
             </div>
 
             {hasInfo ? (
-              <div className="flex flex-col mt-12 gap-3">
+              <div className="grid gap-3 md:grid-cols-3">
                 {nextMatch.date ? (
-                  <p className="flex items-center">
-                    <FaRegCalendarAlt className="mr-2" />
-                    {isoDate ? (
-                      <time dateTime={isoDate}>{nextMatch.date}</time>
-                    ) : (
-                      nextMatch.date
-                    )}
-                  </p>
+                  <div className="rounded-2xl border border-white/12 bg-white/10 p-4 backdrop-blur-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+                      Data
+                    </p>
+                    <p className="mt-3 flex items-center text-base font-semibold text-white">
+                      <FaRegCalendarAlt className="mr-2" />
+                      {isoDate ? (
+                        <time dateTime={isoDate}>{nextMatch.date}</time>
+                      ) : (
+                        nextMatch.date
+                      )}
+                    </p>
+                  </div>
                 ) : null}
 
                 {nextMatch.hour ? (
-                  <p className="flex items-center">
-                    <BiTimer className="mr-2" /> {nextMatch.hour}H
-                  </p>
+                  <div className="rounded-2xl border border-white/12 bg-white/10 p-4 backdrop-blur-sm">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+                      Hora
+                    </p>
+                    <p className="mt-3 flex items-center text-base font-semibold text-white">
+                      <BiTimer className="mr-2" />
+                      {nextMatch.hour}H
+                    </p>
+                  </div>
                 ) : null}
 
                 {nextMatch.address ? (
-                  <p className="flex items-center">
-                    <BiMapPin className="mr-2" />
-                    {mapsHref ? (
-                      <a
-                        href={mapsHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:underline"
-                      >
-                        {nextMatch.address}
-                      </a>
-                    ) : (
-                      nextMatch.address
-                    )}
-                  </p>
+                  <div className="rounded-2xl border border-white/12 bg-white/10 p-4 backdrop-blur-sm md:col-span-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+                      Local
+                    </p>
+                    <p className="mt-3 flex items-start text-base font-semibold text-white">
+                      <BiMapPin className="mr-2 mt-0.5 shrink-0" />
+                      {mapsHref ? (
+                        <a
+                          href={mapsHref}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:underline"
+                        >
+                          {nextMatch.address}
+                        </a>
+                      ) : (
+                        nextMatch.address
+                      )}
+                    </p>
+                  </div>
                 ) : null}
               </div>
             ) : null}
@@ -226,14 +164,20 @@ export default function NextMatchCard(): JSX.Element {
         )}
       </CardContent>
       <CardFooter className="relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-2 w-full">
-          <Button asChild variant={"secondary"} className="w-full md:w-1/2">
+        <div className="flex w-full flex-col items-center justify-center gap-3 md:flex-row">
+          <Button
+            asChild
+            variant={"secondary"}
+            size="lg"
+            className="w-full rounded-full md:w-1/2"
+          >
             <Link href="/calendario">Consultar calendário</Link>
           </Button>
           <Button
             asChild
             variant={"outline"}
-            className="w-full md:w-1/2 bg-transparent hover:bg-white/80 text-primary-foreground hover:text-primary"
+            size="lg"
+            className="w-full rounded-full border-white/20 bg-white/8 text-primary-foreground hover:bg-white hover:text-primary md:w-1/2"
           >
             <Link
               href="https://desporto.inatel.pt/pt/tournament/1322383/ranking"

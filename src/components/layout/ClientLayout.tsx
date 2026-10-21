@@ -3,12 +3,9 @@ import { Navbar } from "../common/Navbar";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex flex-1">
-        <Navbar />
-
-        <MobileLayout>{children}</MobileLayout>
-      </div>
+    <div className="flex min-h-screen flex-col bg-background">
+      <Navbar />
+      <MobileLayout>{children}</MobileLayout>
     </div>
   );
 }

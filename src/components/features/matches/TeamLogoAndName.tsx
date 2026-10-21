@@ -2,17 +2,26 @@ import { TeamLogoAndNameProps } from "@/src/types/team-props";
 import Image from "next/image";
 
 export function TeamLogoAndName({ teamLogo, teamName }: TeamLogoAndNameProps) {
+  const logoSrc =
+    !teamLogo ||
+    teamLogo.includes("azias-fc-logo") ||
+    teamLogo === "/azias-fc-logo.png"
+      ? "/images/logo-ada.jpg"
+      : teamLogo;
+
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
-      <p className="text-md md:text-xl font-bold">{teamName}</p>
-      <Image
-        src={teamLogo ?? ""}
-        alt={`Logo ${teamName}`}
-        width={160}
-        height={160}
-        sizes="(max-width: 1024px) 96px, 160px"
-        className="w-24 h-24 lg:w-40 lg:h-40 rounded-full shadow-lg shadow-white/20 object-cover"
-      />
+    <div className="flex flex-col items-center justify-center gap-3 text-center">
+      <div className="relative h-24 w-24 overflow-hidden border border-white/15 bg-white/10 p-1.5 shadow-lg shadow-primary/10 md:h-28 md:w-28">
+        <Image
+          src={logoSrc}
+          alt={`Logo ${teamName}`}
+          fill
+          sizes="(max-width: 1024px) 96px, 112px"
+          className="object-cover"
+        />
+      </div>
+
+      <p className="text-sm font-bold md:text-lg">{teamName}</p>
     </div>
   );
 }
