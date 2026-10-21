@@ -1,11 +1,11 @@
 export default function CaptainBadge() {
   return (
-    <div className="absolute top-3 right-3 z-20">
-      <div className="bg-secondary/80 backdrop-blur-md text-primary text-sm font-semibold px-2 py-1 rounded-full border border-secondary/30 shadow-xl">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span>Capitão</span>
-        </div>
+    <div className="absolute right-3 top-3 z-20">
+      <div className="inline-flex items-center gap-2 rounded-full border border-secondary/35 bg-secondary/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-primary shadow-xl backdrop-blur-md">
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] text-white">
+          C
+        </span>
+        <span>Capitão</span>
       </div>
     </div>
   );

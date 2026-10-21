@@ -8,6 +8,9 @@ export type TeamLogoAndNameProps = {
 // ---------- Player props ----------
 export type PlayerSectionProps = {
   sectionName: string;
+  eyebrowLabel?: string;
+  description?: string;
+  count?: number;
   children: React.ReactNode;
 };
 

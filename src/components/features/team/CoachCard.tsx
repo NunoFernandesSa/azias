@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { JSX } from "react";
+
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "../../ui/card";
 import { CoachProps } from "@/src/types/team-props";
@@ -7,41 +10,55 @@ export default function CoachCard({
   name,
   age,
   className,
-}: CoachProps) {
+}: CoachProps): JSX.Element {
   return (
     <Card
       className={cn(
-        "group relative overflow-hidden rounded-xl border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl",
-        "bg-gradient-to-b from-background to-muted/50 gap-2 py-0",
-        "transform hover:-translate-y-2 transition-transform bg-primary text-primary-foreground",
+        "group relative isolate overflow-hidden rounded-[1.75rem] border border-primary/10 bg-gradient-to-br from-primary via-primary to-primary/88 py-0 text-primary-foreground shadow-xl shadow-primary/10 transition-all duration-300 hover:-translate-y-1.5 hover:border-secondary/35 hover:shadow-2xl hover:shadow-primary/15",
         className,
       )}
     >
-      {/* Container image */}
-      <div className="relative overflow-hidden">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.10),_transparent_24%)]"
+      />
 
-        {/* Coach image */}
-        <img
+      <div className="relative aspect-[4/5] overflow-hidden">
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
+
+        <Image
           src={imageUrl}
-          alt={`${name}`}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          alt={name}
+          width={480}
+          height={640}
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>
 
-      <CardContent className="px-3 py-0">
-        {/* Player name and position */}
-        <div className="mb-4">
-          <h3 className="text-sm md:text-xl font-semibold md:truncate flex flex-col flex-wrap">
-            {name}
-            {age ? (
-              <span className="text-base font-normal"> {age} anos</span>
-            ) : (
-              ""
-            )}
-          </h3>
+      <CardContent className="relative z-10 space-y-4 border-t border-white/10 px-4 pb-5 pt-4 sm:px-5">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-secondary sm:text-[11px]">
+              Staff técnico
+            </p>
+            <h3 className="mt-2 text-lg font-bold leading-tight tracking-tight break-words md:text-xl">
+              {name}
+            </h3>
+          </div>
+
+          {age ? (
+            <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-primary-foreground/85 sm:text-xs">
+              {age} anos
+            </span>
+          ) : null}
+        </div>
+
+        <div className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 backdrop-blur-sm">
+          <span className="inline-flex items-center rounded-full border border-white/12 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
+            Treinador
+          </span>
         </div>
       </CardContent>
     </Card>

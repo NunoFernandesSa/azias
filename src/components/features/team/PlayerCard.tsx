@@ -41,7 +41,7 @@ export default function PlayerCard({
   return (
     <Card
       className={cn(
-        "group relative isolate overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-b from-primary to-primary/90 py-0 text-primary-foreground shadow-lg shadow-primary/10 transition-all duration-300 hover:-translate-y-1.5 hover:border-secondary/40 hover:shadow-2xl hover:shadow-primary/15",
+        "group relative isolate overflow-hidden rounded-[1.75rem] border border-primary/10 bg-gradient-to-br from-primary via-primary to-primary/90 py-0 text-primary-foreground shadow-xl shadow-primary/10 transition-all duration-300 hover:-translate-y-1.5 hover:border-secondary/35 hover:shadow-2xl hover:shadow-primary/15",
         className,
       )}
     >
@@ -49,22 +49,28 @@ export default function PlayerCard({
         aria-hidden="true"
         className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.16),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_24%)]"
       />
+      <div
+        aria-hidden="true"
+        className="absolute -right-5 top-12 text-8xl font-black text-white/7 transition-transform duration-500 group-hover:scale-110"
+      >
+        {hasNumber ? String(number).padStart(2, "0") : "00"}
+      </div>
 
       {/* ----- Captain badge ----- */}
       {isCaptain && <CaptainBadge />}
 
       {hasNumber ? (
         <div className="absolute left-3 top-3 z-20">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-primary/80 text-lg font-bold text-white shadow-lg shadow-primary/20 backdrop-blur-sm">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-primary/80 text-lg font-bold text-white shadow-lg shadow-primary/20 backdrop-blur-sm">
             {number}
           </div>
         </div>
       ) : null}
 
       {/* ----- Container image ----- */}
-      <div className="relative min-h-64 w-full overflow-hidden">
+      <div className="relative aspect-[4/5] w-full overflow-hidden">
         {/* ----- Gradient overlay ----- */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary via-primary/20 to-transparent" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
         {/* ----- Player image ----- */}
         <Image
           src={imageUrl}
@@ -78,37 +84,37 @@ export default function PlayerCard({
       </div>
 
       {/* ----- Content ----- */}
-      <CardContent className="relative z-10 px-3 pb-4 pt-4 sm:px-4">
-        <div className="mb-4">
-          <div className="min-w-0 w-full">
-            <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary">
-              Plantel
+      <CardContent className="relative z-10 space-y-5 border-t border-white/10 px-4 pb-5 pt-4 sm:px-5">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-secondary sm:text-[11px]">
+              Plantel principal
             </p>
-            <div className="mt-1 flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:gap-2">
-              <h3 className="text-sm font-bold tracking-tight leading-tight break-words sm:text-base md:text-lg">
+            <div className="mt-2 flex flex-col items-start gap-2">
+              <h3 className="text-lg font-bold leading-tight tracking-tight break-words md:text-xl">
                 {name}
               </h3>
-
-              {age ? (
-                <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-semibold text-primary-foreground/85 sm:px-3 sm:text-xs">
-                  {age} anos
-                </span>
-              ) : null}
             </div>
           </div>
+
+          {age ? (
+            <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-primary-foreground/85 sm:text-xs">
+              {age} anos
+            </span>
+          ) : null}
         </div>
 
         {statItems.length > 0 ? (
-          <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
+          <div className="grid grid-cols-3 gap-2">
             {statItems.map((item) => (
               <div
                 key={item.label}
-                className="flex min-h-[78px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/8 px-1.5 py-2 text-center backdrop-blur-sm sm:min-h-[88px] sm:px-2 sm:py-3"
+                className="flex min-h-[88px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/8 px-2 py-3 text-center backdrop-blur-sm"
               >
-                <div className="text-lg font-bold text-white sm:text-xl md:text-2xl">
+                <div className="text-xl font-bold text-white md:text-2xl">
                   {item.value}
                 </div>
-                <div className="mt-1 flex min-h-[24px] w-full items-center justify-center text-center text-[9px] sm:text-[11px] md:text-xs font-semibold uppercase tracking-[0.04em] text-secondary leading-tight">
+                <div className="mt-1 flex min-h-[24px] w-full items-center justify-center text-center text-[10px] font-semibold uppercase tracking-[0.12em] text-secondary leading-tight sm:text-[11px]">
                   {item.label}
                 </div>
               </div>
