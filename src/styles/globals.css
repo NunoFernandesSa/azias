@@ -34,54 +34,57 @@
 :root {
   --radius: 0.5rem;
 
-  /* Le bleu exact #080d4d */
-  --primary: oklch(0.18 0.06 268);
-  /* --primary: oklch(33.781% 0.18824 267.91); */
-  --primary-foreground: oklch(
-    0.98 0.01 260
-  ); /* Blanc cassé pour la lisibilité */
+  /* Couleurs de structure */
+  --primary: #17324a;
+  --primary-foreground: #f8fbff;
 
-  /* Fond du site (Blanc pur comme la maquette) */
-  --background: oklch(96.115% 0.00011 271.152);
-  --foreground: oklch(0.15 0.05 268); /* Texte très sombre pour le contraste */
+  /* Blancs légèrement cassés pour un rendu plus premium */
+  --background: #f7f8fa;
+  --foreground: #12263a;
 
   /* --- ÉLÉMENTS SECONDAIRES --- */
 
-  /* On utilise le jaune du logo pour les accents (Boutons, badges) */
-  --secondary: oklch(0.85 0.18 90);
-  --secondary-foreground: oklch(0.18 0.06 268);
+  /* Accents de marque */
+  --secondary: #f3c84a;
+  --secondary-foreground: #16304d;
+  --accent: #1375d0;
+  --accent-foreground: #f8fbff;
 
-  /* Les cartes (News, Matchs) */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.06 268);
+  /* Surfaces */
+  --card: #fcfdff;
+  --card-foreground: #12263a;
 
-  /* Gris bleu très léger pour les sections de fond (comme le footer ou la zone news) */
-  --muted: oklch(0.95 0.02 268);
-  --muted-foreground: oklch(0.45 0.05 268);
+  /* Gris neutres légèrement froids pour les zones secondaires */
+  --muted: #eef2f6;
+  --muted-foreground: #617286;
 
   /* --- BORDURES ET ETATS --- */
-  --border: oklch(0.9 0.03 268);
-  --input: oklch(0.9 0.03 268);
-  --ring: oklch(0.18 0.06 268);
+  --border: #d9e0e8;
+  --input: #d9e0e8;
+  --ring: #1375d0;
 }
 
 .dark {
-  --background: oklch(0.15 0.02 260);
-  --foreground: oklch(0.98 0.005 260);
+  --background: #0f1724;
+  --foreground: #f4f8fc;
 
-  --card: oklch(0.18 0.02 260);
-  --card-foreground: oklch(0.98 0.005 260);
+  --card: #162131;
+  --card-foreground: #f4f8fc;
 
-  --primary: oklch(0.35 0.06 260); /* Bleu un peu plus lumineux en dark mode */
-  --primary-foreground: oklch(0.98 0.005 260);
+  --primary: #20384f;
+  --primary-foreground: #f8fbff;
 
-  --secondary: oklch(0.8 0.15 85);
-  --secondary-foreground: oklch(0.15 0.02 260);
+  --secondary: #f3c84a;
+  --secondary-foreground: #102033;
+  --accent: #2d8ce4;
+  --accent-foreground: #f8fbff;
 
-  --muted: oklch(0.25 0.02 260);
-  --muted-foreground: oklch(0.7 0.02 260);
+  --muted: #1d2a3d;
+  --muted-foreground: #a7b8ca;
 
-  --border: oklch(0.3 0.02 260);
+  --border: #243449;
+  --input: #243449;
+  --ring: #2d8ce4;
 }
 
 @keyframes fade-in {

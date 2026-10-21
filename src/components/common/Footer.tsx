@@ -14,10 +14,10 @@ export default function Footer(): JSX.Element {
   const address = "Campo de Futebol da Manguela, Azias - Ponte da Barca";
 
   return (
-    <footer className="relative overflow-hidden border-t border-primary/10 bg-primary text-primary-foreground">
+    <footer className="relative overflow-hidden border-t border-primary/10 bg-[#102033] text-primary-foreground">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.14),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_26%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.10),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(19,117,208,0.14),_transparent_26%)]"
       />
 
       <div className="relative">

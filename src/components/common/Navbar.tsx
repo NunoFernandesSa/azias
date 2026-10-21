@@ -39,7 +39,7 @@ export function Navbar(): JSX.Element {
     <header className="sticky top-0 z-50 border-b border-primary/10 bg-background/78 backdrop-blur-xl">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(8,13,77,0.06),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),_transparent_28%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(19,117,208,0.10),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.10),_transparent_28%)]"
       />
 
       <SiteContainer className="relative">
@@ -79,8 +79,8 @@ export function Navbar(): JSX.Element {
                       border-b px-3 py-2 text-sm font-semibold transition-all duration-300
                       ${
                         isActive
-                          ? "border-primary text-primary"
-                          : "border-transparent text-primary/75 hover:border-primary/30 hover:text-primary"
+                          ? "border-[#1375d0] text-[#1375d0]"
+                          : "border-transparent text-primary/75 hover:border-[#1375d0]/30 hover:text-[#1375d0]"
                       }
                     `}
                   >
@@ -127,7 +127,7 @@ export function Navbar(): JSX.Element {
                           flex items-center justify-between border-b px-4 py-3 text-sm font-semibold transition-all duration-300
                           ${
                             isActive
-                              ? "border-primary text-primary"
+                              ? "border-[#1375d0] text-[#1375d0]"
                               : "border-primary/8 text-primary hover:bg-muted"
                           }
                         `}
@@ -137,7 +137,7 @@ export function Navbar(): JSX.Element {
                           size={18}
                           className={
                             isActive
-                              ? "text-primary-foreground"
+                              ? "text-[#1375d0]"
                               : "text-muted-foreground"
                           }
                         />

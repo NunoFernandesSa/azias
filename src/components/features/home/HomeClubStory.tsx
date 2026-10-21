@@ -66,7 +66,7 @@ export default function HomeClubStory(): JSX.Element {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-primary/88 via-primary/42 to-primary/8"
+          className="absolute inset-0 bg-gradient-to-t from-[#102033]/82 via-[#102033]/34 to-transparent"
         />
 
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">

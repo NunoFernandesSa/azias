@@ -36,16 +36,16 @@ export default function Hero(): JSX.Element {
         aria-hidden="true"
         fill
         sizes="100vw"
-        className="absolute inset-0 object-cover object-center brightness-70"
+        className="absolute inset-0 object-cover object-center brightness-65"
         priority
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.16),_transparent_26%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.14),_transparent_28%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.10),_transparent_24%),radial-gradient(circle_at_bottom_right,_rgba(19,117,208,0.12),_transparent_26%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-br from-primary/96 via-primary/88 to-primary/72"
+        className="absolute inset-0 bg-gradient-to-br from-[#102033]/90 via-[#102033]/68 to-[#102033]/42"
       />
 
       <SiteContainer className="relative z-10 py-14 md:py-20 lg:py-24">
@@ -92,7 +92,6 @@ export default function Hero(): JSX.Element {
                 </Link>
               </Button>
             </div>
-
           </div>
 
           <div className="grid gap-6 border-t border-white/14 py-6 sm:grid-cols-3 sm:gap-8 md:py-8">
