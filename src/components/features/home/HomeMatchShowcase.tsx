@@ -3,7 +3,7 @@ import { JSX } from "react";
 import { BiCalendar, BiMapPin, BiTimer } from "react-icons/bi";
 
 import { Button } from "@/src/components/ui/button";
-import { calendar } from "@/src/constants/constants";
+import { MATCHES } from "@/src/constants/data/teams.constants";
 import { TeamLogoAndName } from "../matches/TeamLogoAndName";
 import {
   daysUntil,
@@ -12,7 +12,7 @@ import {
 } from "../matches/match-utils";
 
 export default function HomeMatchShowcase(): JSX.Element {
-  const normalized = calendar.map(normalizeMatch);
+  const normalized = MATCHES.map(normalizeMatch);
   const nextMatch = normalized[0] ?? null;
   const parsedDate = nextMatch?.date ? parseDateDDMMYYYY(nextMatch.date) : null;
   const remainingDays = parsedDate ? daysUntil(parsedDate) : null;
@@ -69,9 +69,9 @@ export default function HomeMatchShowcase(): JSX.Element {
             </Button>
             <Button
               asChild
-              variant="ghost"
+              variant="outline"
               size="lg"
-              className="justify-start rounded-sm px-0 text-primary hover:bg-transparent hover:text-primary/80"
+              className="justify-start rounded-sm text-primary hover:bg-transparent hover:text-primary/80 px-7"
             >
               <Link
                 href="https://desporto.inatel.pt/pt/tournament/1340858/ranking"

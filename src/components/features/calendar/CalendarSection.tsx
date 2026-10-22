@@ -1,9 +1,11 @@
-import { aziasFC, calendar } from "@/src/constants/constants";
+import { MATCHES, TEAMS } from "@/src/constants/data/teams.constants";
+import { Match } from "@/src/constants/data/types";
 import { BiCalendar, BiMapPin, BiTrophy } from "react-icons/bi";
 import { JSX } from "react";
 
 type CalendarMatch = {
-  id: number;
+  id: string;
+  roundLabel: string;
   championship: string;
   jornada: number;
   date: string;
@@ -19,6 +21,13 @@ type CalendarMatch = {
 
 function parseDate(value: string): Date | null {
   if (!value) return null;
+
+  const isoMatch = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (isoMatch) {
+    const [, year, month, day] = isoMatch;
+    const parsed = new Date(Number(year), Number(month) - 1, Number(day));
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
 
   const strictMatch = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if (strictMatch) {
@@ -42,46 +51,27 @@ function formatDate(value: string): string {
   }).format(parsed);
 }
 
-function normalizeCalendarItem(item: (typeof calendar)[number]): CalendarMatch {
-  if ("opposingTeam" in item) {
-    return {
-      id: item.id,
-      championship: item.championship || "",
-      jornada: item.jornada ?? 0,
-      date: item.date || "",
-      hour: item.hour || "",
-      address: item.address || "",
-      homeTeam: item.playAtHome ? aziasFC.name : item.opposingTeam || "",
-      awayTeam: item.playAtHome ? item.opposingTeam || "" : aziasFC.name,
-      isHome: item.playAtHome === null ? null : Boolean(item.playAtHome),
-      homeScore: item.playAtHome
-        ? (item.scores.aziasFCScore ?? null)
-        : (item.scores?.opposingTeamScore ?? null),
-      awayScore: item.playAtHome
-        ? (item.scores?.opposingTeamScore ?? null)
-        : (item.scores?.aziasFCScore ?? null),
-      isPlayed:
-        item.scores?.aziasFCScore !== null &&
-        item.scores?.opposingTeamScore !== null,
-    };
-  }
+function formatTime(value: string | null | undefined): string {
+  if (!value) return "";
+  return value.slice(0, 5);
+}
 
+function normalizeCalendarItem(item: Match): CalendarMatch {
+  const isHome = item.homeTeam.documentId === TEAMS.azias.documentId;
   return {
-    id: item.id,
-    championship: item.match.championship,
-    jornada: item.match.jornada,
-    date: item.match.date,
-    hour: item.match.hour,
-    address: item.match.address,
-    homeTeam: item.team.teamPlayingAtHome,
-    awayTeam: item.team.teamPlayingAway,
-    isHome:
-      item.match.playAtHome === null ? null : Boolean(item.match.playAtHome),
-    homeScore: item.results.teamPlayingAtHomeScore,
-    awayScore: item.results.teamPlayingAwayScore,
-    isPlayed:
-      item.results.teamPlayingAtHomeScore !== null &&
-      item.results.teamPlayingAwayScore !== null,
+    id: item.documentId,
+    roundLabel: item.round,
+    championship: item.competition.name,
+    jornada: item.roundNumber ?? 0,
+    date: item.date ?? "",
+    hour: formatTime(item.time),
+    address: item.venue ? `${item.venue.name}, ${item.venue.city}` : "",
+    homeTeam: item.homeTeam.name,
+    awayTeam: item.awayTeam.name,
+    isHome,
+    homeScore: item.homeScore ?? null,
+    awayScore: item.awayScore ?? null,
+    isPlayed: item.status === "played",
   };
 }
 
@@ -96,7 +86,7 @@ function getScoreLabel(match: CalendarMatch): string {
 }
 
 export default function CalendarSection(): JSX.Element {
-  const matches = calendar.map(normalizeCalendarItem).sort((a, b) => {
+  const matches = MATCHES.map(normalizeCalendarItem).sort((a, b) => {
     const dateA = parseDate(a.date)?.getTime() ?? Number.MAX_SAFE_INTEGER;
     const dateB = parseDate(b.date)?.getTime() ?? Number.MAX_SAFE_INTEGER;
     return dateA - dateB;
@@ -203,7 +193,9 @@ export default function CalendarSection(): JSX.Element {
           >
             <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/70">
-                Jornada {match.jornada}
+                {match.jornada > 0
+                  ? `Jornada ${match.jornada}`
+                  : match.roundLabel}
               </p>
               <p className="text-2xl font-bold leading-tight tracking-tight text-primary">
                 {formatDate(match.date)}

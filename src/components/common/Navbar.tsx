@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/src/constants/constants";
+import { navLinks } from "@/src/constants/data/nav-links";
 import { SiteContainer } from "@/src/components/layout/SiteSection";
 import Image from "next/image";
 import Link from "next/link";

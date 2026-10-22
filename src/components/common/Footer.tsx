@@ -5,7 +5,7 @@ import { BiEnvelope, BiMapPin, BiPhoneCall } from "react-icons/bi";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 import { SiteContainer } from "@/src/components/layout/SiteSection";
-import { navLinks } from "@/src/constants/constants";
+import { navLinks } from "@/src/constants/data/nav-links";
 
 export default function Footer(): JSX.Element {
   const currentYear = new Date().getFullYear();

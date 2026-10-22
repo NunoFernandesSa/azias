@@ -1,18 +1,14 @@
 import PageIntro from "@/src/components/common/PageIntro";
 import CalendarSection from "@/src/components/features/calendar/CalendarSection";
 import { SiteSection } from "@/src/components/layout/SiteSection";
-import { calendar } from "@/src/constants/constants";
+import { MATCHES } from "@/src/constants/data/teams.constants";
 import { JSX } from "react";
 
 export default function CalendarPage(): JSX.Element {
   const stats = [
-    { value: calendar.length, label: "Jornadas previstas" },
+    { value: MATCHES.length, label: "Jornadas previstas" },
     {
-      value: new Set(
-        calendar.map((match) =>
-          "championship" in match ? match.championship : match.match.championship,
-        ),
-      ).size,
+      value: new Set(MATCHES.map((match) => match.competition.name)).size,
       label: "Competições",
     },
   ];

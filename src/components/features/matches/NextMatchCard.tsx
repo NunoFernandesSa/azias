@@ -16,12 +16,44 @@ import {
 import { BiMapPin, BiTimer } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 // ---------- constants ----------
-import { calendar } from "@/src/constants/constants";
+import { MATCHES } from "@/src/constants/data/teams.constants";
 import { daysUntil, normalizeMatch, parseDateDDMMYYYY } from "./match-utils";
 
 export default function NextMatchCard(): JSX.Element {
-  const normalized = calendar.map(normalizeMatch);
-  const nextMatch = normalized[0] ?? null;
+  const normalized = MATCHES.map(normalizeMatch)
+    .filter((match): match is NonNullable<ReturnType<typeof normalizeMatch>> =>
+      Boolean(match),
+    )
+    .sort((firstMatch, secondMatch) => {
+      const firstDate = firstMatch.date
+        ? parseDateDDMMYYYY(firstMatch.date)?.getTime()
+        : null;
+      const secondDate = secondMatch.date
+        ? parseDateDDMMYYYY(secondMatch.date)?.getTime()
+        : null;
+
+      return (
+        (firstDate ?? Number.MAX_SAFE_INTEGER) -
+        (secondDate ?? Number.MAX_SAFE_INTEGER)
+      );
+    });
+
+  const today = new Date();
+  const normalizedToday = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+  );
+
+  const nextMatch =
+    normalized.find((match) => {
+      const parsedDate = match.date ? parseDateDDMMYYYY(match.date) : null;
+      return parsedDate
+        ? parsedDate.getTime() >= normalizedToday.getTime()
+        : false;
+    }) ??
+    normalized[0] ??
+    null;
 
   const parsedDate = nextMatch?.date ? parseDateDDMMYYYY(nextMatch.date) : null;
   const remainingDays = parsedDate ? daysUntil(parsedDate) : null;
