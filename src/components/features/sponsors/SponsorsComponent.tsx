@@ -15,7 +15,7 @@ import {
 import SponsorLogoCard from "./SponsorLogoCard";
 
 // ---------- constants ----------
-import { sponsors } from "@/src/constants/constants";
+import { SPONSORS } from "@/src/constants/data/sponsors.constants";
 
 /**
  * Displays a responsive card with a gradient background color, a title, a content section
@@ -29,8 +29,8 @@ import { sponsors } from "@/src/constants/constants";
  * @returns {JSX.Element} A JSX element representing the SponsorsComponent.
  */
 export default function SponsorsComponent(): JSX.Element {
-  const sponsorCount = sponsors.length;
-  const linkedSponsorCount = sponsors.filter((sponsor) =>
+  const sponsorCount = SPONSORS.length;
+  const linkedSponsorCount = SPONSORS.filter((sponsor) =>
     sponsor.website.startsWith("http"),
   ).length;
 
@@ -139,7 +139,7 @@ export default function SponsorsComponent(): JSX.Element {
           </div>
 
           <div className="grid grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {sponsors.map((sponsor) => (
+            {SPONSORS.map((sponsor) => (
               <SponsorLogoCard
                 key={sponsor.id}
                 id={sponsor.id}

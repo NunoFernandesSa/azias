@@ -46,21 +46,13 @@ export default function PlayerCard({
     >
       <div
         aria-hidden="true"
-        className="absolute right-0 top-0 z-10 text-8xl font-black text-primary/8 transition-transform duration-500 group-hover:scale-110"
+        className="absolute right-0 top-0 z-10 text-8xl font-black text-primary/50 transition-transform duration-500 group-hover:scale-110"
       >
         {hasNumber ? String(number).padStart(2, "0") : "00"}
       </div>
 
       {/* ----- Captain badge ----- */}
       {isCaptain && <CaptainBadge />}
-
-      {hasNumber ? (
-        <div className="absolute left-3 top-3 z-20">
-          <div className="flex h-12 w-12 items-center justify-center border border-white/20 bg-primary/85 text-lg font-bold text-white shadow-lg shadow-primary/20 backdrop-blur-sm">
-            {number}
-          </div>
-        </div>
-      ) : null}
 
       {/* ----- Container image ----- */}
       <div className="relative aspect-[4/5] w-full overflow-hidden border border-primary/10 bg-muted/30">

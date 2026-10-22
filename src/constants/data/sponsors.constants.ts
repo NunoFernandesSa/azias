@@ -1,4 +1,4 @@
-export const sponsors = [
+export const SPONSORS = [
   {
     id: 1,
     name: "JF Azias",

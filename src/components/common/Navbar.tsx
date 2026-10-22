@@ -44,7 +44,7 @@ export function Navbar(): JSX.Element {
         <div ref={mobileNavRef} className="relative">
           <div className="flex h-20 items-center justify-between gap-4 lg:h-24">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden border border-primary/10 bg-white p-1 shadow-sm lg:h-16 lg:w-16 lg:p-1.5 xl:h-[4.5rem] xl:w-[4.5rem]">
+              <div className="relative h-12 w-12 overflow-hidden border border-primary/10 bg-white p-1 shadow-sm lg:h-16 lg:w-16 lg:p-1.5 xl:h-[4.5rem] xl:w-[4.5rem] rounded-lg">
                 <Image
                   src="/images/logo-ada.jpg"
                   alt="Logo da A.D. Azias"
@@ -59,7 +59,7 @@ export function Navbar(): JSX.Element {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground lg:text-[11px]">
                   Site oficial
                 </p>
-                <p className="text-lg font-extrabold tracking-tight text-primary lg:text-[1.4rem] xl:text-[1.55rem]">
+                <p className="text-lg font-extrabold tracking-tight text-accent lg:text-[1.4rem] xl:text-[1.55rem]">
                   A.D. Azias
                 </p>
               </div>

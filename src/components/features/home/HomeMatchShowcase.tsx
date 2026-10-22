@@ -14,16 +14,7 @@ import {
 export default function HomeMatchShowcase(): JSX.Element {
   const normalized = MATCHES.map(normalizeMatch);
   const nextMatch = normalized[0] ?? null;
-  const parsedDate = nextMatch?.date ? parseDateDDMMYYYY(nextMatch.date) : null;
-  const remainingDays = parsedDate ? daysUntil(parsedDate) : null;
-  const countdownText =
-    remainingDays === null || remainingDays < 0
-      ? "Data a confirmar"
-      : remainingDays === 0
-        ? "Joga-se hoje"
-        : remainingDays === 1
-          ? "Falta 1 dia"
-          : `Faltam ${remainingDays} dias`;
+
   const mapsHref = nextMatch?.address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nextMatch.address)}`
     : null;
@@ -54,9 +45,6 @@ export default function HomeMatchShowcase(): JSX.Element {
           </p>
 
           <div className="space-y-4 border-l border-primary/12 pl-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-              {countdownText}
-            </p>
             <p className="text-sm leading-7 text-muted-foreground">
               Consulte o calendário completo, os horários e a classificação
               oficial para acompanhar a temporada jornada após jornada.

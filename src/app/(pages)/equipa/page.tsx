@@ -62,7 +62,6 @@ export default function TeamPage(): JSX.Element {
   );
   const overviewStats = [
     { value: totalPlayers, label: "Jogadores" },
-    { value: squadSections.length, label: "Setores" },
     { value: coaches.length, label: "Treinadores" },
   ];
 

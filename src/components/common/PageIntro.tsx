@@ -21,7 +21,6 @@ export default function PageIntro({
   title,
   description,
   stats = [],
-  aside,
   className,
 }: PageIntroProps): JSX.Element {
   return (
@@ -43,12 +42,6 @@ export default function PageIntro({
             </p>
           </div>
         </div>
-
-        {aside ? (
-          <div className="border-t border-primary/10 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-            {aside}
-          </div>
-        ) : null}
       </div>
 
       {stats.length > 0 ? (

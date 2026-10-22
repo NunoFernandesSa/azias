@@ -3,9 +3,9 @@ import Link from "next/link";
 import { JSX } from "react";
 
 import { Button } from "@/src/components/ui/button";
-import { sponsors } from "@/src/constants/data/sponsors.constants";
+import { SPONSORS } from "@/src/constants/data/sponsors.constants";
 
-const visibleSponsors = sponsors.filter(
+const visibleSponsors = SPONSORS.filter(
   (sponsor) => sponsor.name.trim().length > 0 || sponsor.logo !== ".",
 );
 
