@@ -15,30 +15,41 @@ export default function HomeSponsorsSection(): JSX.Element {
       aria-labelledby="home-sponsors-title"
       className="space-y-12 border-y border-primary/10 py-16 md:space-y-14 md:py-20"
     >
-      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-14">
+      <div className="flex flex-col gap-10 border-b border-primary/8 pb-10 lg:gap-14 lg:pb-12">
         <div className="space-y-5">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-            Parceiros
+            Sponsors
           </p>
           <h2
             id="home-sponsors-title"
-            className="text-3xl font-bold tracking-tight text-primary md:text-5xl"
+            className="max-w-3xl text-3xl font-bold tracking-tight text-primary md:text-5xl"
           >
-            As empresas e parceiros que acompanham a A.D. Azias.
+            Parceiros que ajudam o clube a crescer com mais consistência e mais
+            presença.
           </h2>
         </div>
 
         <div className="space-y-6">
-          <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
-            Cada parceiro ajuda a dar mais força ao clube, à sua presença local
-            e à ambição de continuar a fazer crescer o futebol amador em Azias.
+          <div className="flex items-center justify-between gap-4 border-b border-primary/8 pb-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              Rede de apoio local
+            </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/40">
+              {visibleSponsors.length} parceiros
+            </p>
+          </div>
+
+          <p className="max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
+            Cada parceiro reforça a ligação do clube ao território, ajuda a
+            sustentar a época e contribui para uma imagem mais sólida dentro e
+            fora de campo.
           </p>
 
           <Button
             asChild
-            variant="ghost"
+            variant="default"
             size="lg"
-            className="rounded-sm px-0 text-primary hover:bg-transparent hover:text-primary/80"
+            className="rounded-sm px-6 py-4"
           >
             <Link href="/contacto">Tornar-se patrocinador</Link>
           </Button>

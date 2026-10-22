@@ -5,9 +5,24 @@ import { JSX } from "react";
 import { Button } from "@/src/components/ui/button";
 
 const pillars = [
-  "Identidade local forte",
-  "Espírito competitivo",
-  "Orgulho em representar Azias",
+  {
+    id: "01",
+    title: "Raiz local assumida",
+    description:
+      "Um clube ligado ao território, às pessoas de Azias e à energia que existe à volta de cada jogo.",
+  },
+  {
+    id: "02",
+    title: "Competição com ambição",
+    description:
+      "A vontade de competir bem, crescer época após época e representar o clube com exigência em campo.",
+  },
+  {
+    id: "03",
+    title: "Imagem à altura do clube",
+    description:
+      "Uma presença digital mais clara, mais moderna e mais credível para valorizar equipa, parceiros e adeptos.",
+  },
 ];
 
 export default function HomeClubStory(): JSX.Element {
@@ -35,18 +50,35 @@ export default function HomeClubStory(): JSX.Element {
           merecem estar presentes em cada detalhe do site.
         </p>
 
-        <div className="space-y-4 border-t border-primary/10 pt-6">
+        <div className="space-y-5 border-t border-primary/10 pt-6">
+          <div className="flex items-center justify-between gap-4 border-b border-primary/8 pb-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+              O que define o clube
+            </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/40">
+              3 pilares
+            </p>
+          </div>
+
           {pillars.map((pillar) => (
             <div
-              key={pillar}
-              className="flex items-center justify-between border-b border-primary/8 pb-4"
+              key={pillar.id}
+              className="grid gap-4 border-b border-primary/8 pb-5 md:grid-cols-[72px_1fr]"
             >
-              <span className="text-lg font-semibold text-primary">
-                {pillar}
-              </span>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/35">
-                ADN
-              </span>
+              <div className="flex items-start">
+                <span className="text-sm font-semibold uppercase tracking-[0.24em] text-[#1375d0]">
+                  {pillar.id}
+                </span>
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-lg font-semibold text-primary">
+                  {pillar.title}
+                </p>
+                <p className="max-w-xl text-sm leading-7 text-muted-foreground md:text-[15px]">
+                  {pillar.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
