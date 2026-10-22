@@ -1,7 +1,7 @@
 // ---------- React/Next ----------
 import { JSX } from "react";
 // ---------- Components ----------
-import ProductCard from "./product-card/ProductCard ";
+import ProductCard from "./product-card/ProductCard";
 // ---------- Types ----------
 import { ProductProps } from "@/src/types/shop-props";
 

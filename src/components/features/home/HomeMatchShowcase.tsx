@@ -12,8 +12,51 @@ import {
 } from "../matches/match-utils";
 
 export default function HomeMatchShowcase(): JSX.Element {
-  const normalized = MATCHES.map(normalizeMatch);
-  const nextMatch = normalized[0] ?? null;
+  const normalized = MATCHES.map(normalizeMatch)
+    .filter((match): match is NonNullable<ReturnType<typeof normalizeMatch>> =>
+      Boolean(match),
+    )
+    .sort((firstMatch, secondMatch) => {
+      const firstDate = firstMatch.date
+        ? parseDateDDMMYYYY(firstMatch.date)?.getTime()
+        : null;
+      const secondDate = secondMatch.date
+        ? parseDateDDMMYYYY(secondMatch.date)?.getTime()
+        : null;
+
+      return (
+        (firstDate ?? Number.MAX_SAFE_INTEGER) -
+        (secondDate ?? Number.MAX_SAFE_INTEGER)
+      );
+    });
+
+  const today = new Date();
+  const normalizedToday = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+  );
+
+  const nextMatch =
+    normalized.find((match) => {
+      const parsedDate = match.date ? parseDateDDMMYYYY(match.date) : null;
+      return parsedDate
+        ? parsedDate.getTime() >= normalizedToday.getTime()
+        : false;
+    }) ??
+    normalized[0] ??
+    null;
+
+  const parsedDate = nextMatch?.date ? parseDateDDMMYYYY(nextMatch.date) : null;
+  const remainingDays = parsedDate ? daysUntil(parsedDate) : null;
+  const countdownText =
+    remainingDays === null || remainingDays < 0
+      ? null
+      : remainingDays === 0
+        ? "É hoje"
+        : remainingDays === 1
+          ? "Falta 1 dia"
+          : `Faltam ${remainingDays} dias`;
 
   const mapsHref = nextMatch?.address
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nextMatch.address)}`
@@ -36,6 +79,11 @@ export default function HomeMatchShowcase(): JSX.Element {
             >
               O próximo encontro da A.D. Azias
             </h2>
+            {countdownText ? (
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1375d0]">
+                {countdownText}
+              </p>
+            ) : null}
           </div>
 
           <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
