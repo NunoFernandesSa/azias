@@ -10,7 +10,7 @@ import { SiteSection } from "@/src/components/layout/SiteSection";
 import { Button } from "@/src/components/ui/button";
 
 // ---------- Constants ----------
-import { products } from "@/src/constants/constants";
+import { products } from "@/src/constants/data/shop.constants";
 
 /**
  * A shopping page component.

@@ -16,7 +16,7 @@ import {
   Forwards,
   Goalkeepers,
   Midfielders,
-} from "@/src/constants/constants";
+} from "@/src/constants/data/team.constants";
 
 /**
  * A page that displays the team's players, coaches and other staff for the 2025/2026 season.

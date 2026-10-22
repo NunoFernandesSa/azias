@@ -3,7 +3,7 @@ import Link from "next/link";
 import { JSX } from "react";
 
 import { Button } from "@/src/components/ui/button";
-import { sponsors } from "@/src/constants/constants";
+import { sponsors } from "@/src/constants/data/sponsors.constants";
 
 const visibleSponsors = sponsors.filter(
   (sponsor) => sponsor.name.trim().length > 0 || sponsor.logo !== ".",
