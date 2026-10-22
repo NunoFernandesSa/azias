@@ -54,7 +54,7 @@ export default function HomeMatchShowcase(): JSX.Element {
           </p>
 
           <div className="space-y-4 border-l border-primary/12 pl-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
               {countdownText}
             </p>
             <p className="text-sm leading-7 text-muted-foreground">
@@ -74,7 +74,7 @@ export default function HomeMatchShowcase(): JSX.Element {
               className="justify-start rounded-sm px-0 text-primary hover:bg-transparent hover:text-primary/80"
             >
               <Link
-                href="https://desporto.inatel.pt/pt/tournament/1322383/ranking"
+                href="https://desporto.inatel.pt/pt/tournament/1340858/ranking"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -16,13 +16,12 @@ import { SiteContainer } from "@/src/components/layout/SiteSection";
  */
 export default function Hero(): JSX.Element {
   const heroBg = "/images/hero/hero-img.jpg";
-  const title = "A.D. Azias";
+  const title = "A.D. AZIAS";
   const subtitle =
     "Futebol local com identidade, ambição e orgulho em representar Azias.";
   const highlightStats = [
     { value: "2025/26", label: "Época em destaque" },
     { value: "INATEL", label: "Competição oficial" },
-    { value: "Azias", label: "Ligação à comunidade" },
   ];
 
   return (
@@ -51,7 +50,7 @@ export default function Hero(): JSX.Element {
       <SiteContainer className="relative z-10 py-14 md:py-20 lg:py-24">
         <div className="flex min-h-[calc(100svh-5rem)] flex-col justify-end">
           <div className="animate-fade-in max-w-5xl space-y-8 pb-12 md:pb-16">
-            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-secondary">
+            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-primary-foreground">
               Associação Desportiva de Azias
             </p>
 

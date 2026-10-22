@@ -13,10 +13,10 @@ export default function HomeSponsorsSection(): JSX.Element {
   return (
     <section
       aria-labelledby="home-sponsors-title"
-      className="space-y-10 border-y border-primary/10 py-14 md:py-18"
+      className="space-y-12 border-y border-primary/10 py-16 md:space-y-14 md:py-20"
     >
-      <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-        <div className="space-y-4">
+      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-14">
+        <div className="space-y-5">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
             Parceiros
           </p>
@@ -28,7 +28,7 @@ export default function HomeSponsorsSection(): JSX.Element {
           </h2>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-6">
           <p className="max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
             Cada parceiro ajuda a dar mais força ao clube, à sua presença local
             e à ambição de continuar a fazer crescer o futebol amador em Azias.
@@ -45,34 +45,34 @@ export default function HomeSponsorsSection(): JSX.Element {
         </div>
       </div>
 
-      <div className="grid gap-x-6 gap-y-8 border-t border-primary/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-8 border-t border-primary/10 pt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:pt-12">
         {visibleSponsors.map((sponsor) => (
           <div
             key={sponsor.id}
-            className="flex min-h-32 flex-col justify-between border-b border-primary/8 pb-5"
+            className="flex min-h-52 flex-col justify-between border border-primary/8 bg-card px-6 py-7 sm:min-h-56 lg:min-h-64 lg:px-7 lg:py-8"
           >
-            <div className="flex h-16 items-center">
+            <div className="flex min-h-24 w-full items-center lg:min-h-28">
               {sponsor.logo !== "." ? (
                 <Image
                   src={sponsor.logo}
                   alt={sponsor.name || "Sponsor da A.D. Azias"}
-                  width={160}
-                  height={72}
-                  sizes="160px"
-                  className="h-auto max-h-14 w-auto object-contain grayscale transition duration-300 hover:grayscale-0"
+                  width={320}
+                  height={120}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 22vw"
+                  className="h-auto max-h-20 w-full object-contain object-left grayscale transition duration-300 hover:grayscale-0 lg:max-h-24"
                 />
               ) : (
-                <span className="text-lg font-semibold text-primary">
+                <span className="text-xl font-semibold text-primary">
                   {sponsor.name}
                 </span>
               )}
             </div>
 
-            <div className="pt-4">
-              <p className="text-sm font-semibold text-primary">
+            <div className="space-y-3 pt-6">
+              <p className="text-base font-semibold text-primary">
                 {sponsor.name || "Parceiro local"}
               </p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              <p className="text-sm leading-7 text-muted-foreground">
                 Presença local, apoio ao clube e valorização do futebol amador.
               </p>
 
@@ -81,7 +81,7 @@ export default function HomeSponsorsSection(): JSX.Element {
                   href={sponsor.website}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline"
+                  className="inline-flex pt-1 text-sm font-semibold text-[#1375d0] hover:underline"
                 >
                   Visitar
                 </Link>
