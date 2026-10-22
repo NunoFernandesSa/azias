@@ -1,7 +1,7 @@
 import { TEAMS } from "@/src/constants/data/teams.constants";
 import { Match } from "@/src/constants/data/types";
 
-const FALLBACK_LOGO = "/images/logo-ada.png";
+const FALLBACK_LOGO = "/images/logo-ada.jpg";
 
 export type NormalizedMatch = {
   date?: string;
