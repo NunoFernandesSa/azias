@@ -60,26 +60,26 @@ export default function HomeSponsorsSection(): JSX.Element {
         {visibleSponsors.map((sponsor) => (
           <div
             key={sponsor.id}
-            className="flex min-h-52 flex-col justify-between border border-primary/8 bg-card px-6 py-7 sm:min-h-56 lg:min-h-64 lg:px-7 lg:py-8"
+            className="flex min-h-[18rem] flex-col justify-between border border-primary/8 bg-card px-5 py-5 sm:min-h-[19rem] lg:min-h-[20rem] lg:px-6 lg:py-6"
           >
-            <div className="flex min-h-24 w-full items-center lg:min-h-28">
+            <div className="flex min-h-[8.5rem] w-full items-center justify-center border-b border-primary/8 pb-6 lg:min-h-[10rem] lg:pb-7">
               {sponsor.logo !== "." ? (
                 <Image
                   src={sponsor.logo}
-                  alt={sponsor.name || "Sponsor da A.D. Azias"}
-                  width={320}
-                  height={120}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 22vw"
-                  className="h-auto max-h-20 w-full object-contain object-left grayscale transition duration-300 hover:grayscale-0 lg:max-h-24"
+                  alt={sponsor.name}
+                  width={420}
+                  height={160}
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 44vw, 24vw"
+                  className="h-auto max-h-28 w-full object-contain object-center lg:max-h-32"
                 />
               ) : (
-                <span className="text-xl font-semibold text-primary">
+                <span className="text-center text-xl font-semibold text-primary">
                   {sponsor.name}
                 </span>
               )}
             </div>
 
-            <div className="space-y-3 pt-6">
+            <div className="space-y-3 pt-5">
               <p className="text-base font-semibold text-primary">
                 {sponsor.name || "Parceiro local"}
               </p>
