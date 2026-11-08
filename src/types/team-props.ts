@@ -39,6 +39,7 @@ export type PlayerProps = {
 // ---------- Coach props ----------
 export type CoachProps = {
   name: string;
+  job: string;
   age?: number | null;
   imageUrl: string;
   className?: string;

@@ -7,6 +7,7 @@ import { CoachProps } from "@/src/types/team-props";
 export default function CoachCard({
   imageUrl,
   name,
+  job,
   age,
   className,
 }: CoachProps): JSX.Element {
@@ -51,7 +52,7 @@ export default function CoachCard({
 
         <div className="border-t border-primary/10 pt-4">
           <span className="inline-flex items-center border border-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary/75">
-            Treinador
+            {job}
           </span>
         </div>
       </div>

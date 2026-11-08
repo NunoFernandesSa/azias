@@ -7,7 +7,7 @@ export const SPONSORS = [
   },
   {
     id: "gracoeiro",
-    name: "Barbara Graçoeiro",
+    name: "Bárbara Graçoeiro",
     logo: "/images/sponsors/gracoeiro.png",
     website: "https://gracoeiro.com/",
   },

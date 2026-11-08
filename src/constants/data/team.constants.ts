@@ -186,18 +186,14 @@ export const Coachs = [
     id: 1,
     imageUrl: "/images/players/player-exemple.jpg",
     name: "João Lomba",
+    job: "Treinador",
     age: null, // 25/03/1974
   },
   {
     id: 2,
     imageUrl: "/images/players/player-exemple.jpg",
-    name: "",
-    age: null,
-  },
-  {
-    id: 3,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "",
+    name: "Luis Pereira",
+    job: "Treinador adjunto",
     age: null,
   },
 ];

@@ -140,6 +140,7 @@ export default function TeamPage(): JSX.Element {
                 key={`${coach.name}-${index}`}
                 imageUrl={coach.imageUrl}
                 name={coach.name}
+                job={coach.job}
                 age={coach.age}
               />
             ))}

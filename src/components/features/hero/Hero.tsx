@@ -19,10 +19,6 @@ export default function Hero(): JSX.Element {
   const title = "A.D. AZIAS";
   const subtitle =
     "Futebol local com identidade, ambição e orgulho em representar Azias.";
-  const highlightStats = [
-    { value: "2025/26", label: "Época em destaque" },
-    { value: "INATEL", label: "Competição oficial" },
-  ];
 
   return (
     <section
@@ -91,19 +87,6 @@ export default function Hero(): JSX.Element {
                 </Link>
               </Button>
             </div>
-          </div>
-
-          <div className="grid gap-6 border-t border-white/14 py-6 sm:grid-cols-3 sm:gap-8 md:py-8">
-            {highlightStats.map((stat) => (
-              <div key={stat.label} className="grid gap-2">
-                <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-                  {stat.value}
-                </p>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/65">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </SiteContainer>
