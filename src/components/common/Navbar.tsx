@@ -42,9 +42,9 @@ export function Navbar(): JSX.Element {
 
       <SiteContainer className="relative">
         <div ref={mobileNavRef} className="relative">
-          <div className="flex h-20 items-center justify-between gap-4 lg:h-24">
+          <div className="flex h-18 items-center justify-between gap-4 lg:h-22">
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden border border-primary/10 bg-white p-1 shadow-sm lg:h-16 lg:w-16 lg:p-1.5 xl:h-[4.5rem] xl:w-[4.5rem] rounded-lg">
+              <div className="relative h-12 w-12 overflow-hidden rounded-md border border-primary/10 bg-white p-1 shadow-sm lg:h-14 lg:w-14 lg:p-1.5 xl:h-16 xl:w-16">
                 <Image
                   src="/images/logo-ada.jpg"
                   alt="Logo da A.D. Azias"
@@ -55,17 +55,17 @@ export function Navbar(): JSX.Element {
                 />
               </div>
 
-              <div className="min-w-0 space-y-1">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground lg:text-[11px]">
+              <div className="min-w-0 space-y-0.5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground lg:text-[11px]">
                   Site oficial
                 </p>
-                <p className="text-lg font-extrabold tracking-tight text-accent lg:text-[1.4rem] xl:text-[1.55rem]">
+                <p className="text-lg font-extrabold tracking-tight text-accent lg:text-[1.25rem] xl:text-[1.4rem]">
                   A.D. Azias
                 </p>
               </div>
             </Link>
 
-            <nav className="hidden items-center border border-primary/8 bg-white px-2 py-2 shadow-sm lg:flex">
+            <nav className="hidden items-center gap-1 border border-primary/8 bg-white/92 px-1.5 py-1.5 shadow-sm lg:flex">
               {navLinks.map(({ href, label, id }) => {
                 const isActive = pathname === href;
 
@@ -74,11 +74,11 @@ export function Navbar(): JSX.Element {
                     key={id}
                     href={href}
                     className={`
-                      px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.14em] transition-all duration-300 xl:px-5 xl:text-[14px]
+                      rounded-sm px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.12em] transition-all duration-300 xl:px-4 xl:text-[13px]
                       ${
                         isActive
                           ? "bg-accent text-accent-foreground shadow-sm"
-                          : "text-primary/72 hover:bg-muted hover:text-[#1375d0]"
+                          : "text-primary/68 hover:bg-muted hover:text-[#1375d0]"
                       }
                     `}
                   >
