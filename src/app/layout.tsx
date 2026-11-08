@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import BackToTopButton from "../components/common/BackToTopButton";
 import { ClientLayout } from "../components/layout/ClientLayout";
 import Footer from "../components/common/Footer";
 import "@styles/globals.css";
@@ -57,6 +58,7 @@ export default function RootLayout({
       >
         <SplashProvider>
           <ClientLayout>{children}</ClientLayout>
+          <BackToTopButton />
           <Footer />
         </SplashProvider>
       </body>

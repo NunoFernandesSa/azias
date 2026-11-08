@@ -43,9 +43,9 @@ export default function Hero(): JSX.Element {
         className="absolute inset-0 bg-gradient-to-br from-[#102033]/90 via-[#102033]/68 to-[#102033]/42"
       />
 
-      <SiteContainer className="relative z-10 py-14 md:py-20 lg:py-24">
-        <div className="flex min-h-[calc(100svh-5rem)] flex-col justify-end">
-          <div className="animate-fade-in max-w-5xl space-y-8 pb-12 md:pb-16">
+      <SiteContainer className="relative z-10 py-8 md:py-10 lg:py-12">
+        <div className="flex min-h-[calc(100svh-5rem)] flex-col justify-center lg:min-h-[calc(100svh-6rem)]">
+          <div className="animate-fade-in max-w-5xl space-y-8">
             <p className="text-sm font-semibold uppercase tracking-[0.26em] text-primary-foreground">
               Associação Desportiva de Azias
             </p>
