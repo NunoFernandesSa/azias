@@ -2,25 +2,26 @@ import Link from "next/link";
 import { JSX } from "react";
 import { BiEnvelope, BiMapPin, BiPhoneCall } from "react-icons/bi";
 
+import { CONTACT } from "@/src/constants/data/contact.constants";
 import { Button } from "@/src/components/ui/button";
 
 const contactItems = [
   {
     label: "Telefone",
-    value: "+351 932 287 445",
-    href: "tel:+351932287445",
+    value: CONTACT.phoneDisplay,
+    href: CONTACT.phoneHref,
     icon: BiPhoneCall,
   },
   {
     label: "Email",
-    value: "azias-fc@gmail.com",
-    href: "mailto:azias-fc@gmail.com",
+    value: CONTACT.email,
+    href: CONTACT.emailHref,
     icon: BiEnvelope,
   },
   {
     label: "Campo",
-    value: "Campo de Futebol da Manguela, Azias - Ponte da Barca",
-    href: "https://www.google.com/maps/search/?api=1&query=Campo%20de%20Futebol%20da%20Manguela%2C%20Azias%20-%20Ponte%20da%20Barca",
+    value: CONTACT.address,
+    href: CONTACT.mapsHref,
     icon: BiMapPin,
     external: true,
   },

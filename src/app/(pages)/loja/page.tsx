@@ -10,6 +10,7 @@ import { SiteSection } from "@/src/components/layout/SiteSection";
 import { Button } from "@/src/components/ui/button";
 
 // ---------- Constants ----------
+import { CONTACT } from "@/src/constants/data/contact.constants";
 import { products } from "@/src/constants/data/shop.constants";
 
 /**
@@ -23,10 +24,8 @@ import { products } from "@/src/constants/data/shop.constants";
  * @returns {JSX.Element} - the shopping page component
  */
 export default function ShoppingPage(): JSX.Element {
-  const phoneNumber = "932287445";
-  const email = "azias-fc@gmail.com";
-  const phoneHref = `tel:+351${phoneNumber}`;
-  const emailHref = `mailto:${email}`;
+  const phoneHref = CONTACT.phoneHref;
+  const emailHref = CONTACT.emailHref;
   const stats = [
     { value: products.length, label: "Produtos disponíveis" },
     { value: "2", label: "Canais de encomenda" },

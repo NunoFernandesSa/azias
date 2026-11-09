@@ -1,5 +1,9 @@
 // ---------- React/Next ----------
 import Link from "next/link";
+import { JSX } from "react";
+
+// ---------- Constants ----------
+import { CONTACT } from "@/src/constants/data/contact.constants";
 
 // ---------- Components ----------
 import { Button } from "../../ui/button";
@@ -7,7 +11,6 @@ import { Button } from "../../ui/button";
 // ---------- Icons ----------
 import { BiEnvelope, BiMapPin, BiPhoneCall, BiTimeFive } from "react-icons/bi";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { JSX } from "react";
 
 /**
  * A card component for contact information.
@@ -18,12 +21,12 @@ import { JSX } from "react";
  * @returns {JSX.Element} - the contact card component
  */
 export default function ContactCard(): JSX.Element {
-  const phoneNumber = "+351 932 287 445";
-  const phoneHref = "tel:+351932287445";
-  const email = "assdesazias@gmail.com";
-  const emailHref = `mailto:${email}`;
-  const address = "Campo de Futebol da Manguela, Azias - Ponte da Barca";
-  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  const phoneNumber = CONTACT.phoneDisplay;
+  const phoneHref = CONTACT.phoneHref;
+  const email = CONTACT.email;
+  const emailHref = CONTACT.emailHref;
+  const address = CONTACT.address;
+  const mapsHref = CONTACT.mapsHref;
   const contactItems = [
     {
       icon: BiPhoneCall,
@@ -105,9 +108,13 @@ export default function ContactCard(): JSX.Element {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <Button variant={"secondary"} className="cursor-pointer rounded-sm" asChild>
+          <Button
+            variant={"secondary"}
+            className="cursor-pointer rounded-sm"
+            asChild
+          >
             <Link
-              href="https://www.facebook.com/profile.php?id=61565229806192"
+              href={CONTACT.facebook}
               target="_blank"
               rel="noreferrer"
               title="Facebook"
@@ -116,9 +123,13 @@ export default function ContactCard(): JSX.Element {
               Facebook
             </Link>
           </Button>
-          <Button variant={"secondary"} className="cursor-pointer rounded-sm" asChild>
+          <Button
+            variant={"secondary"}
+            className="cursor-pointer rounded-sm"
+            asChild
+          >
             <Link
-              href="https://www.instagram.com/aziasfc"
+              href={CONTACT.instagram}
               target="_blank"
               rel="noreferrer"
               title="Instagram"

@@ -5,13 +5,14 @@ import { BiEnvelope, BiMapPin, BiPhoneCall } from "react-icons/bi";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 import { SiteContainer } from "@/src/components/layout/SiteSection";
+import { CONTACT } from "@/src/constants/data/contact.constants";
 import { navLinks } from "@/src/constants/data/nav-links";
 
 export default function Footer(): JSX.Element {
   const currentYear = new Date().getFullYear();
-  const phoneNumber = "+351 932 287 445";
-  const email = "azias-fc@gmail.com";
-  const address = "Campo de Futebol da Manguela, Azias - Ponte da Barca";
+  const phoneNumber = CONTACT.phoneDisplay;
+  const email = CONTACT.email;
+  const address = CONTACT.address;
 
   return (
     <footer className="relative overflow-hidden border-t border-primary/10 bg-[#102033] text-primary-foreground">
@@ -72,7 +73,7 @@ export default function Footer(): JSX.Element {
               </p>
               <div className="mt-4 flex flex-col gap-4 text-sm text-primary-foreground/80">
                 <Link
-                  href="tel:+351932287445"
+                  href={CONTACT.phoneHref}
                   className="flex items-start gap-3 transition-colors hover:text-white"
                 >
                   <BiPhoneCall size={18} className="mt-0.5 text-secondary" />
@@ -86,7 +87,7 @@ export default function Footer(): JSX.Element {
                   <span>{email}</span>
                 </Link>
                 <Link
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+                  href={CONTACT.mapsHref}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-start gap-3 transition-colors hover:text-white"
@@ -110,7 +111,7 @@ export default function Footer(): JSX.Element {
               </p>
               <div className="mt-4 flex gap-3">
                 <Link
-                  href="https://www.facebook.com/profile.php?id=61565229806192"
+                  href={CONTACT.facebook}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook da A.D. Azias"
@@ -119,7 +120,7 @@ export default function Footer(): JSX.Element {
                   <FaFacebook size={20} />
                 </Link>
                 <Link
-                  href="https://www.instagram.com/aziasfc"
+                  href={CONTACT.instagram}
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram da A.D. Azias"
