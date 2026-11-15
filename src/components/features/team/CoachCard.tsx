@@ -26,7 +26,8 @@ export default function CoachCard({
           alt={name}
           width={480}
           height={640}
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 25vw"
+          quality={90}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />

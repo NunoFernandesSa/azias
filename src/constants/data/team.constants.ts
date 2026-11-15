@@ -1,7 +1,7 @@
 export const Goalkeepers = [
   {
     id: 1,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/carol.jpeg",
     name: "Carol",
     number: 99,
     age: 23,
@@ -10,7 +10,7 @@ export const Goalkeepers = [
   },
   {
     id: 2,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/xixo.jpeg",
     name: "Xixo",
     number: 77,
     age: 31,
@@ -22,7 +22,7 @@ export const Goalkeepers = [
 export const Defenders = [
   {
     id: 1,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/marcus.jpeg",
     name: "Marcus",
     number: 26,
     age: 0, // 02/12/1986
@@ -31,7 +31,7 @@ export const Defenders = [
   },
   {
     id: 2,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/miguel-lomba.jpeg",
     name: "Michel",
     number: 3,
     age: 0, // 07/10/2004
@@ -40,7 +40,7 @@ export const Defenders = [
   },
   {
     id: 3,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/telmo.jpeg",
     name: "Telmo",
     number: 4,
     age: 0, // 09/03/1991
@@ -49,7 +49,7 @@ export const Defenders = [
   },
   {
     id: 4,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/berna.jpeg",
     name: "Berna",
     number: 5,
     age: 0, // 01/08/2003
@@ -58,7 +58,7 @@ export const Defenders = [
   },
   {
     id: 5,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/coelho.jpeg",
     name: "Coelho",
     number: 39,
     age: 0, // 06/11/1987
@@ -67,7 +67,7 @@ export const Defenders = [
   },
   {
     id: 6,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/rafa.jpeg",
     name: "Rafa",
     number: 2,
     age: 0, // 18/02/2003
@@ -79,7 +79,7 @@ export const Defenders = [
 export const Midfielders = [
   {
     id: 1,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/nuno.jpeg",
     name: "Nuno",
     number: 17,
     age: 0, // 12/04/2003
@@ -88,7 +88,7 @@ export const Midfielders = [
   },
   {
     id: 2,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/cardoso.jpeg",
     name: "Cardoso",
     number: 8,
     age: 0, // 18/06/1999
@@ -97,8 +97,8 @@ export const Midfielders = [
   },
   {
     id: 3,
-    imageUrl: "/images/players/player-exemple.jpg",
-    name: "Vitor Folia",
+    imageUrl: "/images/players/xxx.jpeg",
+    name: "xxx",
     number: 24,
     age: 0, // 31/10/2002
     isCaptain: false,
@@ -106,7 +106,7 @@ export const Midfielders = [
   },
   {
     id: 4,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/luis-dias.jpeg",
     name: "Luis Dias",
     number: 10,
     age: 0, // 30/08/2002
@@ -115,7 +115,7 @@ export const Midfielders = [
   },
   {
     id: 5,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/pedro.jpeg",
     name: "Pedro",
     number: 6,
     age: 0, // 23/10/2000
@@ -124,7 +124,7 @@ export const Midfielders = [
   },
   {
     id: 6,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/ze-duarte.jpeg",
     name: "Zé Duarte",
     number: 7,
     age: 0, // 27/04/1996
@@ -136,7 +136,7 @@ export const Midfielders = [
 export const Forwards = [
   {
     id: 1,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/vivas.jpeg",
     name: "Vivas",
     number: 18,
     age: 0, // 27/04/1996
@@ -145,7 +145,7 @@ export const Forwards = [
   },
   {
     id: 2,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/rato.jpeg",
     name: "Rato",
     number: 11,
     age: 0, // 11/08/1985
@@ -154,7 +154,7 @@ export const Forwards = [
   },
   {
     id: 3,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/mulingue.jpeg",
     name: "Mulingue",
     number: 9,
     age: 0, // 08/01/2003
@@ -163,7 +163,7 @@ export const Forwards = [
   },
   {
     id: 4,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/tiago.jpeg",
     name: "Pixo",
     number: 15,
     age: 0, // 08/06/1998
@@ -172,7 +172,7 @@ export const Forwards = [
   },
   {
     id: 5,
-    imageUrl: "/images/players/player-exemple.jpg",
+    imageUrl: "/images/players/pura-jr.jpeg",
     name: "Pura Jr",
     number: 13,
     age: 0, // 21/05/2006
