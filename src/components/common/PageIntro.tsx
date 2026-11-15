@@ -21,13 +21,19 @@ export default function PageIntro({
   title,
   description,
   stats = [],
+  aside,
   className,
 }: PageIntroProps): JSX.Element {
   return (
     <section
       className={cn("border-b border-primary/10 pb-10 md:pb-12", className)}
     >
-      <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-14">
+      <div
+        className={cn(
+          "grid gap-10",
+          aside ? "lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-14" : "",
+        )}
+      >
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.26em] text-primary">
             {eyebrow}
@@ -42,6 +48,8 @@ export default function PageIntro({
             </p>
           </div>
         </div>
+
+        {aside ? <div>{aside}</div> : null}
       </div>
 
       {stats.length > 0 ? (

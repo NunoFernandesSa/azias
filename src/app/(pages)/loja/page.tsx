@@ -14,22 +14,12 @@ import { CONTACT } from "@/src/constants/data/contact.constants";
 import { products } from "@/src/constants/data/shop.constants";
 
 /**
- * A shopping page component.
- * This component renders a page with a title, a description of the products, a call to action
- * to contact the team, and a grid of products.
- * The component is responsive and has a rounded corners.
- * The contact information includes phone number and email.
- * The products grid displays products in a responsive grid.
- * The products are fetched from the products constant.
- * @returns {JSX.Element} - the shopping page component
+ * @description Shopping page component
+ * @returns JSX.Element
  */
 export default function ShoppingPage(): JSX.Element {
   const phoneHref = CONTACT.phoneHref;
   const emailHref = CONTACT.emailHref;
-  const stats = [
-    { value: products.length, label: "Produtos disponíveis" },
-    { value: "2", label: "Canais de encomenda" },
-  ];
 
   return (
     <SiteSection className="pt-28 md:pt-32" size="wide">
@@ -37,11 +27,10 @@ export default function ShoppingPage(): JSX.Element {
         eyebrow="Loja oficial"
         title="Merch do Clube"
         description="Descobre a coleção oficial da A.D. Azias, apoia o clube e encomenda os teus produtos de forma simples, direta e sem complicações."
-        stats={stats}
         aside={
-          <div className="space-y-5">
+          <div className="space-y-5 bg-amber-100 p-6 rounded-md">
             <div className="flex items-start gap-3 border-b border-primary/10 pb-5">
-              <BiPackage size={20} className="mt-1 text-primary" />
+              <BiPackage size={96} className="mt-1 text-primary" />
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
                   Como encomendar

@@ -24,7 +24,7 @@ export default function ShopGrid({
 }): JSX.Element {
   return (
     <section className="space-y-10">
-      <div className="grid gap-4 border-t border-primary/10 pt-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+      <div className="flex flex-col gap-4 border-t border-primary/10 pt-6">
         <div className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
             Coleção disponível

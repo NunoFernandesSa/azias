@@ -50,20 +50,6 @@ export default function TeamPage(): JSX.Element {
       players: Forwards,
     },
   ];
-  const captain = [
-    ...Goalkeepers,
-    ...Defenders,
-    ...Midfielders,
-    ...Forwards,
-  ].find((player) => player.isCaptain);
-  const totalPlayers = squadSections.reduce(
-    (accumulator, section) => accumulator + section.players.length,
-    0,
-  );
-  const overviewStats = [
-    { value: totalPlayers, label: "Jogadores" },
-    { value: coaches.length, label: "Treinadores" },
-  ];
 
   return (
     <SiteSection className="pt-28 md:pt-32" size="wide">
@@ -72,47 +58,6 @@ export default function TeamPage(): JSX.Element {
           eyebrow="Plantel 2025/2026"
           title="A Nossa Equipa"
           description="Um grupo construído para competir com identidade, ambição e espírito coletivo. Aqui encontras o plantel principal e a equipa técnica que representam a A.D. Azias nesta época."
-          stats={overviewStats}
-          aside={
-            <div className="grid gap-5">
-              <div className="flex items-center gap-5 border-b border-primary/10 pb-5">
-                <Image
-                  src="/images/logo-ada.jpg"
-                  alt="Logo da A.D. Azias"
-                  width={96}
-                  height={96}
-                  sizes="96px"
-                  className="border border-primary/10 object-contain"
-                  priority
-                />
-                <div className="space-y-2">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-                    Azias, Ponte da Barca
-                  </p>
-                  <p className="text-base leading-7 text-muted-foreground">
-                    Plantel principal e estrutura técnica numa leitura mais
-                    sóbria, mais editorial e mais alinhada com a identidade do
-                    clube.
-                  </p>
-                </div>
-              </div>
-
-              {captain ? (
-                <div className="grid gap-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/70">
-                    Capitão
-                  </p>
-                  <p className="text-2xl font-bold tracking-tight text-primary">
-                    {captain.name}
-                  </p>
-                  <p className="text-sm leading-7 text-muted-foreground">
-                    Referência dentro e fora de campo, com responsabilidade,
-                    liderança e ligação ao grupo.
-                  </p>
-                </div>
-              ) : null}
-            </div>
-          }
         />
 
         {squadSections.map(({ sectionName, description, players }) => (
