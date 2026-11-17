@@ -1,7 +1,8 @@
-import { MATCHES, TEAMS } from "@/src/constants/data/teams.constants";
+import { MATCHES } from "@/src/constants/data/calendar.constants";
 import { Match } from "@/src/constants/data/types";
 import { BiCalendar, BiMapPin, BiTrophy } from "react-icons/bi";
 import { JSX } from "react";
+import { TEAMS } from "@/src/constants/data/teams.constants";
 
 type CalendarMatch = {
   id: string;
