@@ -17,8 +17,7 @@ import { SiteContainer } from "@/src/components/layout/SiteSection";
 export default function Hero(): JSX.Element {
   const heroBg = "/images/hero/hero-img.jpg";
   const title = "A.D. AZIAS";
-  const subtitle =
-    "Futebol local com identidade, ambição e orgulho em representar Azias.";
+  const subtitle = "Sangue, Suor e Lágrimas.";
 
   return (
     <section
@@ -53,7 +52,7 @@ export default function Hero(): JSX.Element {
             <div className="space-y-5">
               <h1
                 id="hero-title"
-                className="max-w-5xl text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[6rem]"
+                className="max-w-5xl text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[9rem]"
               >
                 {title}
               </h1>
