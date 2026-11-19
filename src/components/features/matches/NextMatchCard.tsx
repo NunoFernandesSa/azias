@@ -16,8 +16,8 @@ import {
 import { BiMapPin, BiTimer } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 // ---------- constants ----------
-import { MATCHES } from "@/src/constants/data/teams.constants";
 import { daysUntil, normalizeMatch, parseDateDDMMYYYY } from "./match-utils";
+import { MATCHES } from "@/src/constants/data/calendar.constants";
 
 export default function NextMatchCard(): JSX.Element {
   const normalized = MATCHES.map(normalizeMatch)
